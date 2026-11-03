@@ -8,39 +8,54 @@ document.addEventListener("DOMContentLoaded", () => {
         btnExplorar.addEventListener('click', () => {
             menuBotones.classList.toggle('oculto');
             iconoMenu.style.transform = menuBotones.classList.contains('oculto') ? 'rotate(0deg)' : 'rotate(180deg)';
+            
+            // Si abrimos el menú, animamos los botones internos
+            if(!menuBotones.classList.contains('oculto')) {
+                const botonesOcultos = menuBotones.querySelectorAll('.fade-in-up');
+                botonesOcultos.forEach((el, index) => {
+                    setTimeout(() => { el.classList.add('visible'); }, index * 100);
+                });
+            } else {
+                // Al cerrar, les quitamos la clase para que vuelvan a animarse si se abre de nuevo
+                const botonesOcultos = menuBotones.querySelectorAll('.fade-in-up');
+                botonesOcultos.forEach(el => el.classList.remove('visible'));
+            }
         });
     }
 
-    // 2. CERRAR MODAL AL TOCAR EL FONDO OSCURO
+    // 2. LÓGICA DE ANIMACIÓN FADE-IN EN ESCALERA (SCROLL)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -30px 0px', // Se activa un poco antes de llegar al borde inferior
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        // Filtramos solo los que están entrando
+        const elementosVisibles = entries.filter(entry => entry.isIntersecting);
+        
+        // Aplicamos un retraso escalonado si entran varios al mismo tiempo
+        elementosVisibles.forEach((entry, index) => {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 120); // 120ms de diferencia entre cada botón
+            observer.unobserve(entry.target);
+        });
+    }, observerOptions);
+
+    // Observamos todos los elementos con la clase fade-in-up (excepto los del menú oculto)
+    const elementosAnimar = document.querySelectorAll('.layout-wrapper > .container > .fade-in-up, .layout-wrapper > .container > .action-grid-main > .fade-in-up');
+    elementosAnimar.forEach(el => {
+        observer.observe(el);
+    });
+
+    // 3. CERRAR MODAL AL TOCAR EL FONDO OSCURO
     const modalOverlay = document.getElementById('modalServicio');
     if(modalOverlay) {
         modalOverlay.addEventListener('click', function(e) {
             if(e.target === this) cerrarModalServicio();
         });
     }
-
-    // 3. NUEVO: LÓGICA DE ANIMACIÓN FADE-IN AL HACER SCROLL
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Se activa cuando el 15% de la tarjeta es visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // La anima una sola vez
-            }
-        });
-    }, observerOptions);
-
-    // Selecciona todas las tarjetas y grillas de botones para animarlas
-    const elementosAnimar = document.querySelectorAll('.corp-card, .action-grid-main');
-    elementosAnimar.forEach(el => {
-        el.classList.add('fade-in-up'); // Prepara la clase CSS
-        observer.observe(el);
-    });
 });
 
 // LÓGICA DEL MODAL DE SERVICIOS
@@ -79,6 +94,7 @@ function abrirModalServicio(tipo) {
     const data = serviciosInfo[tipo];
     const iconoEl = document.getElementById('modal-icono');
     
+    // Asignar Icono y Color
     iconoEl.className = 'corp-modal-icon ' + data.icono;
     iconoEl.style.color = data.color;
     
@@ -108,5 +124,21 @@ function toggleTema() {
         html.setAttribute('data-theme', 'light');
         localStorage.setItem('temaVillaser', 'light');
         if(iconoTema) { iconoTema.classList.remove('fa-moon'); iconoTema.classList.add('fa-sun'); }
+    }
+}
+
+// LÓGICA PARA COMPARTIR LA WEB (Nativo en celulares)
+function compartirWeb() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Villaser - Sergio Villagra',
+            text: 'Asesor e instalador eléctrico en Córdoba Capital. Registro ERSeP.',
+            url: window.location.href
+        }).catch((error) => console.log('Error al compartir:', error));
+    } else {
+        // Fallback si el navegador no soporta compartir nativo
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert("¡Enlace copiado al portapapeles!");
+        });
     }
 }
