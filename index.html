@@ -25,18 +25,7 @@
         })();
     </script>
 </head>
-<body>
-    <!-- 1. Botón Flotante de Tema y Logo -->
-    <div class="corp-top-nav" style="position: absolute; top: 15px; left: 15px; right: 15px; width: auto; z-index: 999;">
-        <button onclick="toggleTema()" class="corp-btn-icon" aria-label="Cambiar tema">
-            <i class="fa-solid fa-moon" id="icono-tema"></i>
-        </button>
-        <div style="background: var(--ngc-glass); border-radius: 8px; padding: 5px 10px; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-            <img src="../img/logo.avif" alt="Villaser" style="height: 25px;" class="logo-oscuro">
-            <img src="../img/logoclaro.avif" alt="Villaser" style="height: 25px; display: none;" class="logo-claro">
-        </div>
-    </div>
-<body>
+    <body>
     <!-- 1. Botón Flotante de Tema y Logo -->
     <div class="corp-top-nav" style="position: absolute; top: 15px; left: 15px; right: 15px; width: auto; z-index: 999;">
         <button onclick="toggleTema()" class="corp-btn-icon" aria-label="Cambiar tema">
@@ -88,39 +77,54 @@
                 </p>
             </div>
             
-            <!-- BOTONES PRINCIPALES -->
-            <div class="action-grid-main">
-                <a href="servicios/index.html" class="corp-btn corp-btn-large fade-in-up"><i class="fa-solid fa-bolt"></i> Mis Servicios</a>
-                <a href="buscadorinteligente/index.html" class="corp-btn corp-btn-large fade-in-up"><i class="fa-solid fa-tags"></i> Ver Precios</a>
+            <!-- BOTONES PRINCIPALES (Apilados 1 columna) -->
+            <div class="action-grid-stack">
+                <a href="servicios/index.html" class="corp-btn corp-btn-stack fade-in-up"><i class="fa-solid fa-bolt"></i> Mis Servicios</a>
+                <a href="buscadorinteligente/index.html" class="corp-btn corp-btn-stack fade-in-up"><i class="fa-solid fa-tags"></i> Ver Precios</a>
             </div>
 
-            <!-- SERVICIOS RÁPIDOS (GRILLA 2x2) -->
-            <div class="action-grid-main">
-                <button onclick="abrirModalServicio('apto')" class="corp-btn corp-btn-xl success-btn fade-in-up">
-                    <i class="fa-solid fa-file-signature"></i> <span>Apto Eléctrico</span>
-                </button>
-                <button onclick="abrirModalServicio('fugas')" class="corp-btn corp-btn-xl danger-btn fade-in-up">
-                    <i class="fa-solid fa-plug-circle-exclamation"></i> <span>Fugas y Cortos</span>
-                </button>
-                <button onclick="abrirModalServicio('tableros')" class="corp-btn corp-btn-xl fade-in-up">
-                    <i class="fa-solid fa-charging-station" style="color: var(--ngc-warning);"></i> <span>Tableros</span>
-                </button>
-                <button onclick="abrirModalServicio('obra')" class="corp-btn corp-btn-xl fade-in-up">
-                    <i class="fa-solid fa-helmet-safety corp-accent-color"></i> <span>Luz de Obra</span>
-                </button>
-            </div>
-
-            <!-- CTA CALCULADORA -->
-            <a href="calculadora/index.html" class="corp-card gpu-accel fade-in-up" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <div class="corp-btn-icon primary-action" style="width: 50px; height: 50px; font-size: 1.3rem;"><i class="fa-solid fa-calculator"></i></div>
-                    <div>
-                        <h3 class="corp-card-title" style="margin: 0; font-size: 1.1rem;">Calculadora de Consumo</h3>
-                        <p style="font-size: 0.85rem; color: var(--ngc-text-faded); margin: 0;">Evaluá el consumo de tu hogar</p>
-                    </div>
+            <!-- SERVICIOS RÁPIDOS GIGANTES (1 por fila con Safe-Scroll) -->
+            <div class="action-grid-stack">
+                
+                <div class="mega-btn-wrapper fade-in-up">
+                    <button onclick="abrirModalServicio('apto')" class="corp-btn corp-btn-mega mega-success">
+                        <i class="fa-solid fa-file-signature"></i> <span>Apto Eléctrico</span>
+                    </button>
                 </div>
-                <i class="fa-solid fa-chevron-right" style="color: var(--ngc-text-faded); font-size: 1.2rem;"></i>
-            </a>
+                
+                <div class="mega-btn-wrapper fade-in-up">
+                    <button onclick="abrirModalServicio('fugas')" class="corp-btn corp-btn-mega mega-danger">
+                        <i class="fa-solid fa-plug-circle-exclamation"></i> <span>Fugas y Cortos</span>
+                    </button>
+                </div>
+                
+                <div class="mega-btn-wrapper fade-in-up">
+                    <button onclick="abrirModalServicio('tableros')" class="corp-btn corp-btn-mega mega-warning">
+                        <i class="fa-solid fa-charging-station"></i> <span>Tableros</span>
+                    </button>
+                </div>
+                
+                <div class="mega-btn-wrapper fade-in-up">
+                    <button onclick="abrirModalServicio('obra')" class="corp-btn corp-btn-mega mega-neon">
+                        <i class="fa-solid fa-helmet-safety"></i> <span>Luz de Obra</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- CTA CALCULADORA GIGANTE -->
+            <div class="mega-btn-wrapper fade-in-up" style="padding: 15px;">
+                <a href="calculadora/index.html" class="mega-card-calc" style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; width: 95%;">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div class="corp-btn-icon primary-action icon-calc"><i class="fa-solid fa-calculator"></i></div>
+                        <div>
+                            <h3 class="corp-card-title" style="margin: 0; font-size: 1.2rem;">Calculadora de Consumo</h3>
+                            <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0;">Evaluá el consumo de tu hogar</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right" style="color: var(--ngc-text-faded); font-size: 1.5rem;"></i>
+                </a>
+            </div>
 
             <!-- MENÚ DESPLEGABLE -->
             <button id="btn-explorar" class="corp-btn corp-btn-large gpu-accel fade-in-up" style="margin-bottom: 5px;">
@@ -128,11 +132,11 @@
             </button>
             
             <div id="menu-botones" class="oculto">
-                <div class="action-grid-main">
-                    <a href="tips/index.html" class="corp-btn corp-btn-large fade-in-up"><i class="fa-solid fa-lightbulb"></i> Tip's</a>
-                    <a href="perfil/index.html" class="corp-btn corp-btn-large fade-in-up"><i class="fa-solid fa-user-tie"></i> Perfil/CV</a>
-                    <a href="historia/index.html" class="corp-btn corp-btn-large fade-in-up"><i class="fa-solid fa-book-open"></i> Historia</a>
-                    <a href="webs/index.html" class="corp-btn corp-btn-large fade-in-up"><i class="fa-solid fa-globe"></i> Web's</a>
+                <div class="action-grid-stack">
+                    <a href="tips/index.html" class="corp-btn corp-btn-stack fade-in-up"><i class="fa-solid fa-lightbulb"></i> Tip's</a>
+                    <a href="perfil/index.html" class="corp-btn corp-btn-stack fade-in-up"><i class="fa-solid fa-user-tie"></i> Perfil/CV</a>
+                    <a href="historia/index.html" class="corp-btn corp-btn-stack fade-in-up"><i class="fa-solid fa-book-open"></i> Historia</a>
+                    <a href="webs/index.html" class="corp-btn corp-btn-stack fade-in-up"><i class="fa-solid fa-globe"></i> Web's</a>
                 </div>
             </div>
 
@@ -152,7 +156,7 @@
         </div>
     </main>
 
-    <!-- MODAL CORPORATIVO (Se mantiene igual) -->
+    <!-- MODAL CORPORATIVO (Se mantiene intacto) -->
     <div id="modalServicio" class="modal-overlay oculto">
         <div class="corp-modal-card gpu-accel">
             <i id="modal-icono" class="corp-modal-icon"></i>
@@ -168,7 +172,7 @@
     </div>
 
     <script src="script.js" defer></script>
-</body>
+    </body>
     
                       
 </html>
