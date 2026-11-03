@@ -576,3 +576,42 @@ details[open] summary .acc-icon-indicator {
 a.corp-btn, a.corp-btn-stack, a.mega-card-calc {
     text-decoration: none !important;
 }
+
+/* ============================================================== */
+/* CSS EXTRA PARA EL BUSCADOR INTELIGENTE                         */
+/* ============================================================== */
+
+/* Dropdown del autocompletar */
+.suggestions-dropdown {
+    position: absolute; 
+    top: 52px; 
+    left: 0; 
+    width: 100%; 
+    background: var(--ngc-glass); 
+    border: 1px solid var(--ngc-privacy-border); 
+    border-radius: 8px; 
+    z-index: 1000; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    max-height: 220px; 
+    overflow-y: auto; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.suggestions-dropdown li {
+    padding: 12px 15px; 
+    border-bottom: 1px solid var(--ngc-privacy-border); 
+    color: var(--ngc-text-main); 
+    font-size: 0.9rem;
+    cursor: pointer; 
+    transition: background 0.2s;
+}
+
+.suggestions-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.suggestions-dropdown li:hover, .suggestions-dropdown li:active {
+    background: var(--ngc-btn-bg); 
+}
