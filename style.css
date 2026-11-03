@@ -615,3 +615,65 @@ a.corp-btn, a.corp-btn-stack, a.mega-card-calc {
 .suggestions-dropdown li:hover, .suggestions-dropdown li:active {
     background: var(--ngc-btn-bg); 
 }
+
+/* ============================================================== */
+/* CSS EXTRA PARA LA CALCULADORA                                  */
+/* ============================================================== */
+
+/* 1. Estilo para los Sliders (Range Inputs) */
+.corp-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--ngc-privacy-border);
+    border-radius: 5px;
+    outline: none;
+    margin-top: 10px;
+}
+.corp-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--ngc-neon);
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* 2. Estilo para los Toggles de Tarifa (Con/Sin SEF) */
+.tarifa-radio-wrapper input[type="radio"]:checked + .tarifa-btn-content {
+    color: var(--ngc-neon);
+    background: rgba(35, 116, 225, 0.1);
+    border-color: var(--ngc-neon);
+}
+.tarifa-btn-content {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid var(--ngc-privacy-border);
+    background: var(--ngc-bg-input);
+    color: var(--ngc-text-faded);
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* 3. Estilo para los Acordeones Nativos (<details>) */
+.corp-details {
+    background: var(--ngc-bg-input);
+    border: 1px solid var(--ngc-privacy-border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.corp-details-summary {
+    padding: 15px;
+    font-weight: 600;
+    color: var(--ngc-text-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--ngc-glass);
+}
