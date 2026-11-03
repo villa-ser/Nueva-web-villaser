@@ -571,3 +571,8 @@ details[open] summary .acc-icon-indicator {
     width: 35px;
     text-align: center;
 }
+
+/* Eliminar subrayado automático de los enlaces con diseño de botón */
+a.corp-btn, a.corp-btn-stack, a.mega-card-calc {
+    text-decoration: none !important;
+}
