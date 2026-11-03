@@ -501,3 +501,73 @@ details[open] summary .acc-icon-indicator {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ============================================================== */
+/* NUEVO CÓDIGO: BOTONES GIGANTES Y SCROLL SEGURO (SAFE SCROLL)   */
+/* ============================================================== */
+
+/* 1. Contenedor principal que apila todo en una columna */
+.action-grid-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 2. ENVOLTORIO SAFE-SCROLL: Visualmente ocupa toda la pantalla, pero deja bordes inactivos */
+.mega-btn-wrapper {
+    background: var(--ngc-glass);
+    border: var(--ngc-border-glass);
+    border-radius: 16px;
+    padding: 20px; /* IMPORTANTE: Área muerta para tocar y hacer scroll de forma segura */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+/* 3. BOTÓN REAL: Clickeable solo en el centro (85% del ancho de la pantalla) */
+.corp-btn-mega {
+    width: 85%; /* Deja los bordes laterales vacíos para que no se accione al scrollear */
+    padding: 30px 15px; /* Altura enorme */
+    font-size: 1.25rem;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 12px;
+}
+.corp-btn-mega i {
+    font-size: 2.8rem; /* Iconos masivos */
+}
+
+/* Variantes de colores para los mega botones */
+.mega-success { background: rgba(49, 162, 76, 0.1); color: var(--success-green); }
+.mega-danger { background: rgba(228, 30, 63, 0.1); color: var(--error-red); }
+.mega-warning { background: rgba(245, 195, 59, 0.1); color: var(--ngc-warning); }
+.mega-neon { background: rgba(35, 116, 225, 0.1); color: var(--ngc-neon); }
+
+/* 4. ESTILO GIGANTE PARA CALCULADORA */
+.mega-card-calc {
+    padding: 20px 15px;
+    border-radius: 16px;
+}
+.mega-card-calc .icon-calc {
+    width: 75px !important;
+    height: 75px !important;
+    font-size: 2rem !important;
+    border-radius: 16px !important;
+}
+
+/* 5. BOTONES DE MENÚ APILADOS (Mis Servicios, Tips, etc.) */
+.corp-btn-stack {
+    padding: 22px 20px;
+    font-size: 1.15rem;
+    border-radius: 12px;
+    justify-content: flex-start; /* Alineados a la izquierda */
+    gap: 15px;
+}
+.corp-btn-stack i {
+    font-size: 1.5rem;
+    width: 35px;
+    text-align: center;
+}
