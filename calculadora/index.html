@@ -139,7 +139,7 @@
                 </a>
             </div>
 
-            <!-- INFO TÉCNICA -->
+                        <!-- INFO TÉCNICA -->
             <div class="corp-card fade-in-up visible">
                 <h3 class="corp-card-title"><i class="fa-solid fa-circle-info corp-accent-color"></i> Info Tarifaria (Córdoba)</h3>
                 <ul style="font-size: 0.85rem; color: var(--ngc-text-faded); padding-left: 20px; margin: 0; line-height: 1.6;">
@@ -149,9 +149,8 @@
                 </ul>
             </div>
 
-        </div>
-        <!-- FOOTER CORPORATIVO -->
-            <div class="corp-card fade-in-up" style="margin-top: auto; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <!-- FOOTER CORPORATIVO (Ahora dentro del container y con "visible") -->
+            <div class="corp-card fade-in-up visible" style="margin-top: auto; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
                 <div style="display: flex; justify-content: center; gap: 15px; width: 100%;">
                     <a href="mailto:contacto@villaser.com.ar" class="corp-btn-icon" aria-label="Enviar correo"><i class="far fa-envelope"></i></a>
                     <a href="https://instagram.com/villaserelectricista" target="_blank" class="corp-btn-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -163,7 +162,10 @@
                     &copy; 2026 Villaser. Diseñado por <span style="color: var(--ngc-neon); font-weight: bold;">Sergio Villagra</span>.
                 </div>
             </div>
+
+        </div> <!-- ESTE ES EL CIERRE DEL CONTAINER, EL FOOTER DEBE IR ARRIBA DE ESTO -->
     </main>
+
 
         <!-- MODAL DE LISTA DE APARATOS -->
     <div id="modal-aparatos" class="modal-overlay oculto">
