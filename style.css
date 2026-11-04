@@ -471,7 +471,7 @@ details[open] summary .acc-icon-indicator {
 .hero-banner-animado {
     width: 120%; 
     height: 100%;
-    background-image: url('perfil.avif'); 
+    background-image: url('../img/perfil.avif'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
