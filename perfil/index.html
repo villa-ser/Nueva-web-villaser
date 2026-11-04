@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- PRELOAD OPTIMIZADO PARA AMBOS FONDOS Y LOGOS -->
+    <link rel="preload" as="image" href="../img/logoclaro.avif" fetchpriority="high">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil y Currículum - Sergio Villagra | Electricista Categoría III</title>
+    <link rel="canonical" href="https://villaser.com.ar/perfil/" />
+    
+    <meta name="description" content="Trayectoria y certificaciones de Sergio Villagra, electricista matriculado Categoría III. Experiencia técnica y seguridad garantizada en Córdoba.">
+    <meta name="keywords" content="curriculum electricista, Sergio Villagra electricista, electricista categoria 3, matriculado ERSeP cordoba">
+    <meta name="author" content="Sergio Adrian Villagra">
+
+    <!-- Metadatos para compartir en Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Perfil y Currículum - Sergio Villagra | Electricista Categoría III">
+    <meta property="og:description" content="Trayectoria y certificaciones de Sergio Villagra, electricista matriculado Categoría III. Experiencia técnica y seguridad garantizada en Córdoba.">
+    <meta property="og:url" content="https://villaser.com.ar/perfil/index.html">
+    <meta property="og:locale" content="es_AR">
+    
+    <meta property="og:image" content="https://villaser.com.ar/img/perfil-logo.avif">
+    <meta property="og:image:secure_url" content="https://villaser.com.ar/img/perfil-logo.avif">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Fotografía en blanco y negro de un electricista con lentes, serio frente a una pared de tiza con iconos de seguridad eléctrica y el texto VILLASER ELECTRICISTA.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Perfil y Currículum - Sergio Villagra | Electricista Categoría III">
+    <meta name="twitter:description" content="Trayectoria y certificaciones de Sergio Villagra, electricista matriculado Categoría III. Experiencia técnica y seguridad garantizada en Córdoba.">
+    <meta name="twitter:image" content="https://villaser.com.ar/img/perfil-logo.avif">
+    
+    <link rel="icon" type="image/png" href="../img/perfil-logo.avif">
+    
+    <!-- Librerías -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Estilos compartidos -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Script de ejecución inmediata para el tema -->
+    <script>
+        (function() {
+            const TIEMPO_CADUCIDAD = 30 * 60 * 1000; 
+            const temaGuardado = localStorage.getItem('temaVillaser');
+            const tiempoGuardado = localStorage.getItem('temaVillaser_tiempo');
+            const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+            let temaFinal = 'dark'; 
+
+            if (temaGuardado && tiempoGuardado) {
+                const tiempoPasado = Date.now() - parseInt(tiempoGuardado);
+                if (tiempoPasado <= TIEMPO_CADUCIDAD) {
+                    temaFinal = temaGuardado; 
+                } else {
+                    temaFinal = prefiereClaro ? 'light' : 'dark';
+                }
+            } else if (prefiereClaro) {
+                temaFinal = 'light';
+            }
+
+            if (temaFinal === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- NAV SUPERIOR (Estilo App) -->
+    <div class="corp-top-nav" style="position: absolute; top: 15px; left: 15px; right: 15px; width: auto; z-index: 999;">
+        <a href="../index.html" class="corp-btn-icon" aria-label="Volver al Inicio">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        
+        <div style="background: var(--ngc-glass); border-radius: 8px; padding: 5px 10px; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <img src="../img/logo.avif" alt="Villaser" style="height: 25px;" class="logo-oscuro">
+            <img src="../img/logoclaro.avif" alt="Villaser" style="height: 25px; display: none;" class="logo-claro">
+        </div>
+
+        <button onclick="toggleTema()" id="btn-tema-servicios" class="corp-btn-icon" aria-label="Cambiar tema">
+            <i class="fa-solid fa-moon" id="icono-tema"></i>
+        </button>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="layout-wrapper" style="padding-top: 80px;">
+        <div class="container" style="gap: 20px;">
+            
+            <!-- ETIQUETA SUPERIOR -->
+            <div class="fade-in-up" style="margin-top: 5px; text-align: center;">
+                <h1 style="font-size: 1.4rem; color: var(--ngc-text-main); margin: 0;">Currículum y Perfil</h1>
+            </div>
+
+            <!-- TARJETA CV (Datos y Foto) -->
+            <div class="corp-card fade-in-up" style="padding: 0; overflow: hidden; text-align: center;">
+                <!-- Contenedor Foto (JS interactúa con este bloque) -->
+                <div class="ngc-photo-landscape" style="width: 100%; height: 260px; position: relative; background: var(--ngc-bg-input);">
+                    <img src="../img/perfil-color.avif" alt="Sergio Adrian Villagra" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0; display: block;">
+                </div>
+                
+                <!-- Datos Personales -->
+                <div style="padding: 22px 20px;">
+                    <h2 class="corp-card-title" style="justify-content: center; font-size: 1.5rem; margin-bottom: 8px;">Sergio A. Villagra</h2>
+                    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; color: var(--ngc-text-faded); margin-bottom: 20px;">
+                        <span><i class="fa-regular fa-id-card"></i> DNI 29.029.389</span>
+                        <span><i class="fa-solid fa-cake-candles"></i> 45 Años</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Córdoba Capital</span>
+                    </div>
+                    
+                    <a href="../tarjeta/index.html" class="corp-btn corp-btn-large primary-action" style="width: 100%; justify-content: center;">
+                        <i class="fa-solid fa-address-card"></i> Cómo Contactarme
+                    </a>
+                </div>
+            </div>
+
+            <!-- TARJETA FORMACIÓN Y CREDENCIALES -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px; border-left: 4px solid var(--ngc-neon);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--ngc-privacy-border); padding-bottom: 15px;">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i class="fa-solid fa-certificate" style="font-size: 1.1rem;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.15rem; color: var(--ngc-text-main);">Credenciales y Formación</h3>
+                </div>
+                
+                <ul style="list-style-type: none; padding-left: 0; margin: 0; display: flex; flex-direction: column; gap: 18px;">
+                    <li style="display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fa-solid fa-check-circle" style="color: var(--success-green); font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <strong style="color: var(--ngc-text-main); display: block; font-size: 0.95rem; line-height: 1.4;">Electricista Habilitado Categoría III</strong>
+                            <span style="color: var(--ngc-text-faded); font-size: 0.85rem;">Registro ERSeP Córdoba</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fa-solid fa-check-circle" style="color: var(--ngc-neon); font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <strong style="color: var(--ngc-text-main); display: block; font-size: 0.95rem; line-height: 1.4;">Electricista Domiciliario</strong>
+                            <span style="color: var(--ngc-text-faded); font-size: 0.85rem;">Instituto Celsius</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fa-solid fa-check-circle" style="color: var(--ngc-neon); font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <strong style="color: var(--ngc-text-main); display: block; font-size: 0.95rem; line-height: 1.4;">Auxiliar Electricista Industrial</strong>
+                            <span style="color: var(--ngc-text-faded); font-size: 0.85rem;">Instituto Especializado</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fa-solid fa-check-circle" style="color: var(--ngc-warning); font-size: 1.2rem; margin-top: 3px;"></i>
+                        <div>
+                            <strong style="color: var(--ngc-text-main); display: block; font-size: 0.95rem; line-height: 1.4;">Seminario en Seguridad Eléctrica (2025)</strong>
+                            <span style="color: var(--ngc-text-faded); font-size: 0.85rem;">Secretaría de Extensión Universitaria UTN</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ETIQUETA SEPARADORA -->
+            <div class="fade-in-up" style="margin-top: 10px;">
+                <span style="font-size: 0.85rem; color: var(--ngc-text-faded); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Trayectoria</span>
+            </div>
+
+            <!-- INTRO TRAYECTORIA -->
+            <div class="corp-card fade-in-up" style="padding: 20px; background: linear-gradient(135deg, var(--ngc-glass), rgba(35, 116, 225, 0.05)); text-align: center; border: 1px solid var(--ngc-privacy-border);">
+                <p style="margin: 0; font-size: 0.9rem; color: var(--ngc-text-faded); line-height: 1.6;">
+                    <i class="fa-solid fa-timeline" style="color: var(--ngc-neon); margin-right: 5px;"></i> Desde mis inicios, busco la excelencia en cada conexión, priorizando la seguridad y el rigor técnico bajo la normativa vigente en cada obra.
+                </p>
+            </div>
+
+            <!-- TRAYECTORIA 1: ORÍGENES -->
+            <div class="corp-card fade-in-up" style="padding: 20px; border-left: 4px solid var(--ngc-text-faded);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--ngc-bg-input); display: flex; justify-content: center; align-items: center; color: var(--ngc-text-main);">
+                        <i data-lucide="history" style="width: 20px; height: 20px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.1rem; color: var(--ngc-text-main);">Orígenes</h3>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--ngc-text-faded); line-height: 1.6; margin: 0;">
+                    Comencé en el sector eléctrico con una visión clara: elevar los estándares de calidad en instalaciones domiciliarias y comerciales en la provincia de Córdoba.
+                </p>
+            </div>
+
+            <!-- TRAYECTORIA 2: CRECIMIENTO -->
+            <div class="corp-card fade-in-up" style="padding: 20px; border-left: 4px solid var(--ngc-warning);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(245, 195, 59, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-warning);">
+                        <i data-lucide="award" style="width: 20px; height: 20px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.1rem; color: var(--ngc-text-main);">Crecimiento</h3>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--ngc-text-faded); line-height: 1.6; margin: 0;">
+                    A lo largo de los años, la capacitación constante me ha permitido obtener la <strong style="color: var(--ngc-text-main);">habilitación Categoría III</strong>, garantizando seguridad técnica y legal absoluta a mis clientes.
+                </p>
+            </div>
+
+            <!-- TRAYECTORIA 3: ACTUALIDAD -->
+            <div class="corp-card fade-in-up" style="padding: 20px; border-left: 4px solid var(--success-green);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(49, 162, 76, 0.1); display: flex; justify-content: center; align-items: center; color: var(--success-green);">
+                        <i data-lucide="shield-check" style="width: 20px; height: 20px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.1rem; color: var(--ngc-text-main);">Actualidad</h3>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--ngc-text-faded); line-height: 1.6; margin: 0;">
+                    Hoy opero principalmente en Córdoba Capital y B° Los Álamos, enfocándome en modernizar instalaciones antiguas y certificar nuevas obras bajo la estricta <strong style="color: var(--ngc-text-main);">Ley de Seguridad Eléctrica (Ley 10.281)</strong>.
+                </p>
+            </div>
+
+            <!-- FOOTER CORPORATIVO -->
+            <div class="corp-card fade-in-up" style="margin-top: 5px; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <div style="display: flex; justify-content: center; gap: 15px; width: 100%;">
+                    <a href="mailto:contacto@villaser.com.ar" class="corp-btn-icon" aria-label="Enviar correo"><i class="far fa-envelope"></i></a>
+                    <a href="https://instagram.com/villaserelectricista" target="_blank" class="corp-btn-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100087189438289" target="_blank" class="corp-btn-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <button type="button" onclick="compartirWeb()" class="corp-btn-icon" aria-label="Compartir página"><i class="fa-solid fa-share-nodes"></i></button>
+                    <a href="https://wa.me/543513559347?text=Hola,%20necesito%20asesoramiento" target="_blank" class="corp-btn-icon success" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--ngc-text-faded); text-align: center;">
+                    &copy; 2026 Villaser. Diseñado por <span style="color: var(--ngc-neon); font-weight: bold;">Sergio Villagra</span>.
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/global.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+                          </html>
+                          
