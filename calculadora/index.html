@@ -130,7 +130,7 @@
             </div>   -->
 
             <!-- TARJETA 3: SLIDERS MANUALES (Oculta por defecto) -->
-            <div id="sliders-container" class="corp-card fade-in-up visible oculto">
+           <!-- <div id="sliders-container" class="corp-card fade-in-up visible oculto">
                 <div class="row-group">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                         <label style="margin: 0;"><i class="fa-regular fa-clock"></i> Uso Diario</label>
@@ -150,7 +150,7 @@
                 <button id="btn-agregar-lista" class="corp-btn corp-btn-large success-btn" style="margin-top: 20px;" onclick="agregarItem()">
                     <i class="fa-solid fa-plus"></i> Añadir a la factura
                 </button>
-            </div>
+            </div> -->
 
             <!-- TARJETA 4: RESUMEN DE TOTALES -->
             <div class="corp-card fade-in-up visible" style="background: linear-gradient(135deg, var(--ngc-glass), rgba(35, 116, 225, 0.05)); border: 1px solid var(--ngc-neon);">
@@ -338,6 +338,37 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL DE INGRESO MANUAL -->
+<div id="modal-manual" class="modal-overlay oculto">
+    <div class="corp-modal-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="margin: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-sliders corp-accent-color"></i> Configuración Manual</h3>
+            <button class="corp-btn-icon" style="width: 35px; height: 35px;" onclick="cerrarModalManual()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="row-group">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                <label style="margin: 0;"><i class="fa-regular fa-clock"></i> Uso Diario</label>
+                <span id="horas-val" style="font-weight: bold; color: var(--ngc-neon);">4 hs</span>
+            </div>
+            <input type="range" id="horas" class="corp-range" min="1" max="24" value="4">
+        </div>
+
+        <div class="row-group" style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                <label style="margin: 0;"><i class="fa-regular fa-calendar-days"></i> Días a la semana</label>
+                <span id="dias-val" style="font-weight: bold; color: var(--ngc-neon);">7 días</span>
+            </div>
+            <input type="range" id="dias" class="corp-range" min="1" max="7" value="7">
+        </div>
+
+        <button id="btn-agregar-lista" class="corp-btn corp-btn-large success-btn" style="margin-top: 25px;" onclick="agregarItem()">
+            <i class="fa-solid fa-plus"></i> Añadir a la factura
+        </button>
+    </div>
+</div>
+    
     <script src="../global.js" defer></script>
     <script src="script.js" defer></script>
 </body>
