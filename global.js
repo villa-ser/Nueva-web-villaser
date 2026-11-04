@@ -13,3 +13,10 @@ function toggleTema() {
         iconosTema.forEach(i => { i.classList.remove('fa-moon'); i.classList.add('fa-sun'); });
     }
 }
+
+function toggleMenuApp() {
+    const menuOverlay = document.getElementById('app-menu-overlay');
+    if (menuOverlay) {
+        menuOverlay.classList.toggle('oculto');
+    }
+}
