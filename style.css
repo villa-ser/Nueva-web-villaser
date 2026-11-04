@@ -368,7 +368,7 @@ details[open] summary .acc-icon-indicator {
 /* 1. Contenedor que mantiene el marco intacto (Masking) */
 .hero-banner-container {
     width: 100%;
-    height: 250px; /* Altura del cuadro del operario */
+    height: 350px; /* Altura del cuadro del operario */
     position: relative;
     overflow: hidden; /* Esto es lo que mantiene la imagen dentro del cuadro */
     border-radius: 12px 12px 0 0; /* Coincide con las esquinas de tu tarjeta */
