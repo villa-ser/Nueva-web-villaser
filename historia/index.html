@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- PRELOAD OPTIMIZADO PARA AMBOS FONDOS Y LOGOS -->
+    <link rel="preload" as="image" href="../img/logoclaro.avif" fetchpriority="high">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Historia - Ley 10.281 - Electricista Habilitado Categoría III | Villaser</title>
+    <link rel="canonical" href="https://villaser.com.ar/historia/" />
+    
+    <meta name="description" content="Conocé la importancia de la Ley 10.281 de Seguridad Eléctrica en Córdoba. Información clave sobre normativas vigentes y certificaciones ERSeP.">
+    <meta name="keywords" content="ley 10281 cordoba, seguridad electrica cordoba, normativa ERSeP, certificado electrico, instalaciones seguras">
+    <meta name="author" content="Sergio Adrian Villagra">
+
+    <!-- Metadatos para compartir en Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Historia - Ley 10.281 | Villaser Electricista">
+    <meta property="og:description" content="Conocé la importancia de la Ley 10.281 de Seguridad Eléctrica en Córdoba. Información clave sobre normativas vigentes y certificaciones ERSeP.">
+    <meta property="og:url" content="https://villaser.com.ar/historia/index.html">
+    <meta property="og:locale" content="es_AR">
+    
+    <meta property="og:image" content="https://villaser.com.ar/img/perfil-logo.avif">
+    <meta property="og:image:secure_url" content="https://villaser.com.ar/img/perfil-logo.avif">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:image:alt" content="Fotografía en blanco y negro de un electricista con lentes, serio frente a una pared de tiza con iconos de seguridad eléctrica y el texto VILLASER ELECTRICISTA.">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Historia - Ley 10.281 | Villaser Electricista">
+    <meta name="twitter:description" content="Conocé la importancia de la Ley 10.281 de Seguridad Eléctrica en Córdoba. Información clave sobre normativas vigentes y certificaciones ERSeP.">
+    <meta name="twitter:image" content="https://villaser.com.ar/img/perfil-logo.avif">
+    
+    <link rel="icon" type="image/png" href="../img/perfil-logo.avif">
+    
+    <!-- Librerías -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Estilos compartidos -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Script de ejecución inmediata para el tema -->
+    <script>
+        (function() {
+            const TIEMPO_CADUCIDAD = 30 * 60 * 1000; 
+            const temaGuardado = localStorage.getItem('temaVillaser');
+            const tiempoGuardado = localStorage.getItem('temaVillaser_tiempo');
+            const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+            let temaFinal = 'dark'; 
+
+            if (temaGuardado && tiempoGuardado) {
+                const tiempoPasado = Date.now() - parseInt(tiempoGuardado);
+                if (tiempoPasado <= TIEMPO_CADUCIDAD) {
+                    temaFinal = temaGuardado; 
+                } else {
+                    temaFinal = prefiereClaro ? 'light' : 'dark';
+                }
+            } else if (prefiereClaro) {
+                temaFinal = 'light';
+            }
+
+            if (temaFinal === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- NAV SUPERIOR (Estilo App) -->
+    <div class="corp-top-nav" style="position: absolute; top: 15px; left: 15px; right: 15px; width: auto; z-index: 999;">
+        <a href="../index.html" class="corp-btn-icon" aria-label="Volver al Inicio">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        
+        <div style="background: var(--ngc-glass); border-radius: 8px; padding: 5px 10px; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <img src="../img/logo.avif" alt="Villaser" style="height: 25px;" class="logo-oscuro">
+            <img src="../img/logoclaro.avif" alt="Villaser" style="height: 25px; display: none;" class="logo-claro">
+        </div>
+
+        <button onclick="toggleTema()" id="btn-tema-servicios" class="corp-btn-icon" aria-label="Cambiar tema">
+            <i class="fa-solid fa-moon" id="icono-tema"></i>
+        </button>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="layout-wrapper" style="padding-top: 80px;">
+        <div class="container" style="gap: 20px;">
+            
+            <!-- BANNER INTRODUCTORIO -->
+            <div class="corp-card fade-in-up">
+                <h1 class="corp-card-title" style="justify-content: center; font-size: 1.4rem; margin-bottom: 10px; text-align: center;">
+                    Historia y Marco Legal
+                </h1>
+                
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span style="color: var(--ngc-neon); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; background: rgba(35, 116, 225, 0.1); padding: 5px 12px; border-radius: 20px;">
+                        <i class="fa-solid fa-scale-balanced"></i> Ley Provincial N° 10.281
+                    </span>
+                </div>
+                
+                <p style="font-size: 0.95rem; color: var(--ngc-text-main); margin-bottom: 10px; line-height: 1.6; text-align: center;">
+                    Debido al incremento de incidentes con desenlaces críticos en la provincia, se acelera la sanción de la <strong>Ley Nro. 10.281 de Seguridad Eléctrica de Córdoba</strong>.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin-bottom: 0; line-height: 1.6; text-align: center;">
+                    Esta normativa establece un marco obligatorio para garantizar instalaciones seguras en residencias y comercios.
+                </p>
+            </div>
+
+            <!-- ETIQUETA SEPARADORA -->
+            <div class="fade-in-up" style="margin-top: 5px;">
+                <span style="font-size: 0.85rem; color: var(--ngc-text-faded); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Aspectos Fundamentales</span>
+            </div>
+
+            <!-- CARD 1: PUNTOS CLAVE -->
+            <div class="corp-card fade-in-up" style="padding: 22px 20px; border-left: 4px solid var(--ngc-neon);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                    <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="sparkles" style="width: 22px; height: 22px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.15rem; color: var(--ngc-text-main);">Puntos Clave de la Ley</h3>
+                </div>
+                
+                <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem; line-height: 1.8; color: var(--ngc-text-faded); margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-check" style="color: var(--ngc-neon); margin-right: 6px;"></i>Normas claras:</strong> Establece reglas estrictas para la ejecución y mantenimiento de sistemas eléctricos.</li>
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-check" style="color: var(--ngc-neon); margin-right: 6px;"></i>Prevención de accidentes:</strong> Mitiga drásticamente el riesgo de incendios y fallas dieléctricas.</li>
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-check" style="color: var(--ngc-neon); margin-right: 6px;"></i>Control y sanciones:</strong> Supervisa el cumplimiento normativo a través de entes reguladores.</li>
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-check" style="color: var(--ngc-neon); margin-right: 6px;"></i>Calidad certificada:</strong> Promueve la utilización exclusiva de insumos homologados (IRAM).</li>
+                </ul>
+            </div>
+
+            <!-- CARD 2: ¿QUÉ IMPLICA PARA VOS? -->
+            <div class="corp-card fade-in-up" style="padding: 22px 20px; border-left: 4px solid var(--ngc-warning);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                    <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(245, 195, 59, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-warning);">
+                        <i data-lucide="fingerprint" style="width: 22px; height: 22px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.15rem; color: var(--ngc-text-main);">¿Qué implica para vos?</h3>
+                </div>
+                <p style="font-size: 0.88rem; color: var(--ngc-text-faded); margin-bottom: 12px;">Toda instalación eléctrica en Córdoba debe alinearse a las exigencias legales:</p>
+                <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem; line-height: 1.8; color: var(--ngc-text-faded); margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-angle-right" style="color: var(--ngc-warning); margin-right: 6px;"></i>Inspección técnica:</strong> Verificación por profesional habilitado (Categoría III).</li>
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-angle-right" style="color: var(--ngc-warning); margin-right: 6px;"></i>Materiales aprobados:</strong> Uso de componentes normados.</li>
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-angle-right" style="color: var(--ngc-warning); margin-right: 6px;"></i>Mantenimiento preventivo:</strong> Revisiones periódicas del cuadro de protecciones.</li>
+                </ul>
+            </div>
+
+            <!-- CARD 3: ¿POR QUÉ ES IMPORTANTE? -->
+            <div class="corp-card fade-in-up" style="padding: 22px 20px; border-left: 4px solid var(--success-green);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(49, 162, 76, 0.1); display: flex; justify-content: center; align-items: center; color: var(--success-green);">
+                        <i data-lucide="shield-check" style="width: 22px; height: 22px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.15rem; color: var(--ngc-text-main);">¿Por qué es importante?</h3>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--ngc-text-faded); line-height: 1.6; margin-bottom: 8px;">
+                    La seguridad eléctrica salvaguarda la vida humana y el patrimonio inmobiliario.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--ngc-text-faded); line-height: 1.6; margin-bottom: 0;">
+                    Asimismo, optimiza el rendimiento energético general del inmueble.
+                </p>
+            </div>
+
+            <!-- CARD 4: ¿DÓNDE CONSULTAR MÁS INFO? -->
+            <div class="corp-card fade-in-up" style="padding: 22px 20px; border-left: 4px solid var(--ngc-neon);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="search-code" style="width: 22px; height: 22px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.15rem; color: var(--ngc-text-main);">¿Dónde consultar más info?</h3>
+                </div>
+                <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem; line-height: 1.8; color: var(--ngc-text-faded); margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-building" style="color: var(--ngc-neon); margin-right: 6px;"></i>Entidades reguladoras:</strong> Ente Regulador de los Servicios Públicos <strong>(ERSeP)</strong>.</li>
+                    <li><strong style="color: var(--ngc-text-main);"><i class="fa-solid fa-user-shield" style="color: var(--ngc-neon); margin-right: 6px;"></i>Profesionales:</strong> Padrón oficial de electricistas habilitados en la provincia.</li>
+                </ul>
+            </div>
+
+            <!-- BANNER INSTITUCIONAL DE CIERRE -->
+            <div class="corp-card fade-in-up" style="padding: 20px; background: linear-gradient(135deg, var(--ngc-glass), rgba(49, 162, 76, 0.08)); border: 1px solid var(--success-green); text-align: center;">
+                <p style="margin: 0; font-size: 0.95rem; color: var(--ngc-text-main); font-weight: 600; line-height: 1.5;">
+                    <i class="fa-solid fa-circle-check" style="color: var(--success-green); margin-right: 6px;"></i> La Ley 10.281 no es un mero trámite burocrático: es la garantía técnica de que tu hogar es un espacio seguro.
+                </p>
+            </div>
+
+            <!-- FORMULARIO DE CONSULTA -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--ngc-privacy-border); padding-bottom: 12px;">
+                    <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="send" style="width: 20px; height: 20px;"></i>
+                    </div>
+                    <h3 style="margin: 0; font-size: 1.15rem; color: var(--ngc-text-main);">Consulta sobre Normativa / Trámites</h3>
+                </div>
+
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                
+                <form id="consultForm" action="https://docs.google.com/forms/d/e/1FAIpQLSefu24jgGz2PYu2KkhI5Rh5jd9D7sS22uE9s3QgXPhiLqUKbA/formResponse" method="POST" target="hidden_iframe" onsubmit="handleSubmit();" style="display: flex; flex-direction: column; gap: 15px;">
+                    
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <label style="font-size: 0.85rem; font-weight: 600; color: var(--ngc-text-main);">Nombre y Apellido</label>
+                        <input type="text" name="entry.1265296596" placeholder="¿Cómo te llamas?" class="corp-input" required>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <label style="font-size: 0.85rem; font-weight: 600; color: var(--ngc-text-main);">Número de WhatsApp</label>
+                        <input type="tel" name="entry.252385466" placeholder="Ej: 351..." class="corp-input" required>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <label style="font-size: 0.85rem; font-weight: 600; color: var(--ngc-text-main);">Consulta / Trámite</label>
+                        <textarea name="entry.615194603" placeholder="Detallá si necesitás apto eléctrico, asesoramiento o revisión..." rows="4" class="corp-input" style="resize: vertical; min-height: 90px;" required></textarea>
+                    </div>
+
+                    <button type="submit" class="corp-btn corp-btn-large primary-action" id="btnSubmit" style="margin-top: 5px;">
+                        <i class="fa-solid fa-paper-plane" style="margin-right: 6px;"></i> Enviar Consulta
+                    </button>
+
+                    <p style="font-size: 0.78rem; color: var(--ngc-text-faded); margin: 5px 0 0 0; text-align: center; line-height: 1.4;">
+                        <i class="fa-solid fa-lock" style="color: var(--ngc-neon); margin-right: 4px;"></i> Tus datos son privados y se utilizarán exclusivamente para responder a tu consulta. No compartimos información con terceros.
+                    </p>
+                </form>
+
+                <div id="success-message" style="display: none; text-align: center; padding: 20px 10px;">
+                    <div style="color: var(--success-green); font-weight: 700; margin-bottom: 10px; font-size: 1.1rem; letter-spacing: 1px;">
+                        <i class="fa-solid fa-circle-check"></i> CONSULTA ENVIADA
+                    </div>
+                    <p style="font-size: 0.88rem; opacity: 0.9; margin-bottom: 20px; color: var(--ngc-text-main);">
+                        Gracias por comunicarte. Me pondré en contacto con vos por WhatsApp a la brevedad.
+                    </p>
+                    <button type="button" onclick="resetForm()" class="corp-btn" style="width: 100%;">Enviar otra consulta</button>
+                </div>
+            </div>
+
+            <!-- FOOTER CORPORATIVO -->
+            <div class="corp-card fade-in-up" style="margin-top: 5px; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <div style="display: flex; justify-content: center; gap: 15px; width: 100%;">
+                    <a href="mailto:contacto@villaser.com.ar" class="corp-btn-icon" aria-label="Enviar correo"><i class="far fa-envelope"></i></a>
+                    <a href="https://instagram.com/villaserelectricista" target="_blank" class="corp-btn-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100087189438289" target="_blank" class="corp-btn-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <button type="button" onclick="compartirWeb()" class="corp-btn-icon" aria-label="Compartir página"><i class="fa-solid fa-share-nodes"></i></button>
+                    <a href="https://wa.me/543513559347?text=Hola,%20necesito%20asesoramiento" target="_blank" class="corp-btn-icon success" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--ngc-text-faded); text-align: center;">
+                    &copy; 2026 Villaser. Diseñado por <span style="color: var(--ngc-neon); font-weight: bold;">Sergio Villagra</span>.
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/global.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+  </html>
+                          
