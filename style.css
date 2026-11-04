@@ -677,3 +677,26 @@ a.corp-btn, a.corp-btn-stack, a.mega-card-calc {
     align-items: center;
     background: var(--ngc-glass);
 }
+
+/* ============================================================== */
+/* FIX: FOOTER SIEMPRE AL FONDO Y SIN SUBRAYADO                   */
+/* ============================================================== */
+
+/* 1. Eliminar subrayado de los botones de redes sociales/contacto */
+a.corp-btn-icon {
+    text-decoration: none !important;
+}
+
+/* 2. Forzar que la pantalla ocupe siempre el 100% del alto visible */
+.layout-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. Hacer que el contenedor crezca y empuje los elementos al fondo */
+.layout-wrapper .container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
