@@ -637,24 +637,34 @@ a.corp-btn, a.corp-btn-stack, a.mega-card-calc {
 }
 
 /* ============================================================== */
-/* FIX: FOOTER SIEMPRE AL FONDO Y SIN SUBRAYADO                   */
+/* FIX: FOOTER AL FONDO Y ELIMINACIÓN DE SUBRAYADOS               */
 /* ============================================================== */
 
-/* 1. Eliminar subrayado de los botones de redes sociales/contacto */
-a.corp-btn-icon {
-    text-decoration: none !important;
-}
-
-/* 2. Forzar que la pantalla ocupe siempre el 100% del alto visible */
+/* 1. Forzar que el contenedor principal ocupe toda la pantalla y empuje elementos */
 .layout-wrapper {
-    min-height: 100vh;
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
 }
 
-/* 3. Hacer que el contenedor crezca y empuje los elementos al fondo */
 .layout-wrapper .container {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 1; 
+    height: 100%; /* Ayuda a que Safari y móviles calculen bien el fondo */
+}
+
+/* 2. Subrayado rebelde: Se elimina en todos sus estados y elementos internos */
+a.corp-btn-icon, 
+a.corp-btn-icon:hover, 
+a.corp-btn-icon:visited,
+a.corp-btn-icon:active,
+a.corp-btn-icon:focus {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+a.corp-btn-icon i {
+    text-decoration: none !important;
 }
