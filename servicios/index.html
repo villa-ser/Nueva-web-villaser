@@ -37,34 +37,19 @@
 
     <link rel="icon" type="image/png" href="../img/perfil-logo.avif">
 
-    <!-- Script de ejecución inmediata para el tema (Evita el parpadeo visual) -->
     <script>
-        (function() {
-            const TIEMPO_CADUCIDAD = 30 * 60 * 1000;
-            const temaGuardado = localStorage.getItem('temaVillaser');
-            const tiempoGuardado = localStorage.getItem('temaVillaser_tiempo');
-            const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-            let temaFinal = 'dark';
-
-            if (temaGuardado && tiempoGuardado) {
-                const tiempoPasado = Date.now() - parseInt(tiempoGuardado);
-                if (tiempoPasado <= TIEMPO_CADUCIDAD) {
-                    temaFinal = temaGuardado; 
-                } else {
-                    temaFinal = prefiereClaro ? 'light' : 'dark';
-                }
-            } else if (prefiereClaro) {
-                temaFinal = 'light';
-            }
-
-            if (temaFinal === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-            }
-        })();
+    (function() {
+        const temaGuardado = localStorage.getItem('temaVillaser');
+        const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+        
+        if (temaGuardado === 'light' || (!temaGuardado && prefiereClaro)) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    })();
     </script>
+    
     
     <!-- Librerías de iconos -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
