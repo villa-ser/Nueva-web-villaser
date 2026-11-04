@@ -47,8 +47,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 
-function abrirModalAparatos() { document.getElementById('modal-aparatos').classList.remove('oculto'); }
-function cerrarModalAparatos() { document.getElementById('modal-aparatos').classList.add('oculto'); }
+function abrirModalAparatos() { 
+    document.getElementById('modal-aparatos').classList.remove('oculto'); 
+}
+
+function cerrarModalAparatos() { 
+    document.getElementById('modal-aparatos').classList.add('oculto'); 
+    
+    // Resetea los acordeones para que al volver a abrir estén prolijamente cerrados
+    setTimeout(() => {
+        document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
+        document.querySelectorAll('.acc-icon-indicator').forEach(i => i.style.transform = 'rotate(0deg)');
+    }, 300);
+}
+
+// Función que abre y cierra las listas del modal
+function toggleAccordion(targetId) {
+    const targetContent = document.getElementById(targetId);
+    if(!targetContent) return;
+
+    const headerIcon = targetContent.previousElementSibling.querySelector('.acc-icon-indicator');
+    const isOpening = targetContent.style.display === 'none' || targetContent.style.display === '';
+
+    // Primero cerramos absolutamente todos los acordeones
+    document.querySelectorAll('.accordion-content').forEach(c => {
+        c.style.display = 'none';
+    });
+    // Volvemos todas las flechitas a su posición original
+    document.querySelectorAll('.acc-icon-indicator').forEach(i => {
+        i.style.transform = 'rotate(0deg)';
+    });
+
+    // Si se hizo clic para abrirlo, lo desplegamos
+    if (isOpening) {
+        targetContent.style.display = 'flex'; 
+        targetContent.style.flexDirection = 'column'; 
+        if(headerIcon) headerIcon.style.transform = 'rotate(180deg)';
+    }
+}
 
 // ==========================================
 // CONTROL SECUENCIAL DE MODALES Y SELECCIÓN
