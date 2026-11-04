@@ -58,6 +58,89 @@ function selectOption(val, text) {
     document.getElementById('aparato-seleccionado-nombre').innerText = text;
     document.getElementById('aparato-seleccionado-watts').innerText = val + " W de potencia (Nominal)"; 
     
+    // Mostramos qué aparato se eligió de fondo
+    document.getElementById('btn-aparato-trigger').classList.add('oculto');
+    document.getElementById('aparato-seleccionado-container').classList.remove('oculto');
+    
+    // 1. Cerramos el primer modal (Selección de aparato)
+    cerrarModalAparatos();
+
+    // 2. Comprobamos si hay recomendación y aplicamos el retraso (animación)
+    if (recomendacionesData[text]) {
+        aparatoActualRecomendado = text;
+        
+        // Mantenemos ocultos los sliders de fondo
+        document.getElementById('sliders-container').classList.add('oculto');
+        
+        // Retraso de 0.6 segundos para que abra el modal de recomendación suavemente
+        setTimeout(() => {
+            abrirModalRecomendacion();
+        }, 600); 
+        
+    } else {
+        aparatoActualRecomendado = null;
+        
+        // Si no hay recomendación, esperamos 0.6s y mostramos los controles manuales
+        setTimeout(() => {
+            document.getElementById('sliders-container').classList.remove('oculto');
+        }, 600);
+    }
+}
+
+function abrirModalRecomendacion() {
+    if(!aparatoActualRecomendado || !recomendacionesData[aparatoActualRecomendado]) return;
+    
+    const data = recomendacionesData[aparatoActualRecomendado];
+    
+    // Inyectamos el título y el texto dinámico en el modal
+    document.getElementById('modal-titulo').innerText = "Configuración Recomendada";
+    document.getElementById('modal-reco-desc').innerHTML = `
+        <strong style="color: var(--ngc-neon); display: block; margin-bottom: 12px; font-size: 1.05rem;">
+            Uso sugerido: ${data.horas} hs y ${data.dias} días.
+        </strong>
+        ${data.desc}
+    `;
+    
+    document.getElementById('modal-recomendacion').classList.remove('oculto');
+}
+
+function ingresoManual() {
+    // Cerramos el modal de recomendación
+    cerrarModalRecomendacion();
+    
+    // Retraso de 0.5 segundos para que termine la animación de cierre 
+    // antes de mostrar el panel manual (días y horas) en la web
+    setTimeout(() => {
+        document.getElementById('sliders-container').classList.remove('oculto');
+    }, 500);
+}
+
+function resetAll() {
+    listado = [];
+    const inputObj = document.getElementById('aparato');
+    if(inputObj) {
+        inputObj.value = "0";
+        inputObj.setAttribute('data-text', "");
+    }
+    
+    document.getElementById("horas").value = 4; document.getElementById("horas-val").innerText = "4 hs";
+    document.getElementById("dias").value = 7; document.getElementById("dias-val").innerText = "7 días";
+    
+    document.getElementById('btn-aparato-trigger').classList.remove('oculto');
+    document.getElementById('aparato-seleccionado-container').classList.add('oculto');
+    document.getElementById('sliders-container').classList.add('oculto');
+    
+    render();
+}
+
+/* function selectOption(val, text) {
+    const hiddenInput = document.getElementById('aparato');
+    hiddenInput.value = val;
+    hiddenInput.setAttribute('data-text', text);
+    
+    document.getElementById('aparato-seleccionado-nombre').innerText = text;
+    document.getElementById('aparato-seleccionado-watts').innerText = val + " W de potencia (Nominal)"; 
+    
     document.getElementById('btn-aparato-trigger').classList.add('oculto');
     document.getElementById('aparato-seleccionado-container').classList.remove('oculto');
     
@@ -73,7 +156,7 @@ function selectOption(val, text) {
     }
 
     cerrarModalAparatos();
-}
+} */
 
 document.addEventListener("click", function(event) {
     const modalAparatos = document.getElementById('modal-aparatos');
@@ -82,11 +165,11 @@ document.addEventListener("click", function(event) {
     if (event.target === modalReco) cerrarModalRecomendacion();
 });
 
-function abrirModalRecomendacion() {
+/* function abrirModalRecomendacion() {
     if(!aparatoActualRecomendado || !recomendacionesData[aparatoActualRecomendado]) return;
     document.getElementById('modal-reco-desc').innerText = recomendacionesData[aparatoActualRecomendado].desc;
     document.getElementById('modal-recomendacion').classList.remove('oculto');
-}
+} */
 
 function cerrarModalRecomendacion() {
     document.getElementById('modal-recomendacion').classList.add('oculto');
@@ -104,13 +187,13 @@ function usarRecomendacion() {
     agregarItem();
 }
 
-function ingresoManual() {
+/* function ingresoManual() {
     cerrarModalRecomendacion();
     document.getElementById('recomendacion-container').classList.add('oculto');
     document.getElementById('sliders-container').classList.remove('oculto');
-}
+} */
 
-function resetAll() {
+/* function resetAll() {
     listado = [];
     const inputObj = document.getElementById('aparato');
     if(inputObj) {
@@ -127,7 +210,7 @@ function resetAll() {
     document.getElementById('sliders-container').classList.add('oculto');
     
     render();
-}
+} */
 
 function agregarItem() {
     const inputObj = document.getElementById('aparato');
