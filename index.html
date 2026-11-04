@@ -11,19 +11,19 @@
     
     <link rel="icon" type="image/png" href="img/perfil-logo.avif">
 
-    <!-- Detección Inmediata de Tema -->
     <script>
-        (function() {
-            const temaGuardado = localStorage.getItem('temaVillaser');
-            const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
-            
-            if (temaGuardado === 'light' || (!temaGuardado && prefiereClaro)) {
-                document.documentElement.setAttribute('data-theme', 'light');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-            }
-        })();
-    </script>
+    (function() {
+        const temaGuardado = localStorage.getItem('temaVillaser');
+        const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+        
+        if (temaGuardado === 'light' || (!temaGuardado && prefiereClaro)) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    })();
+</script>
+
 </head>
     <body>
     <!-- 1. Botón Flotante de Tema y Logo -->
