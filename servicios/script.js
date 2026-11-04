@@ -11,16 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
         elementosVisibles.forEach((entry, index) => {
             setTimeout(() => {
                 entry.target.classList.add('visible');
-            }, index * 120); // 120ms de retraso escalonado
+            }, index * 120); 
             observer.unobserve(entry.target);
         });
     }, observerOptions);
 
-    // Solo observamos los elementos que no están explícitamente ocultos por funcionalidad
     const elementosAnimar = document.querySelectorAll('.fade-in-up:not(.oculto)');
     elementosAnimar.forEach(el => observer.observe(el));
 
-    // 2. LÓGICA DE VISIBILIDAD DEL FORMULARIO (Visita Bonificada)
+    // 2. LÓGICA DE VISIBILIDAD DEL FORMULARIO (Visita Bonificada al Final)
     const btnBeneficio = document.getElementById('btn-beneficio');
     const formContacto = document.getElementById('formulario-contacto');
 
@@ -28,18 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
         btnBeneficio.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Mostramos el formulario y lo agregamos al observador para que se anime
             formContacto.classList.remove('oculto');
             setTimeout(() => { formContacto.classList.add('visible'); }, 50);
 
-            // Autocompletar el campo de texto
             const textarea = document.querySelector('textarea[name="entry.615194603"]');
             if(textarea) {
                 textarea.value = "【 VISITA TÉCNICA BONIFICADA 】\nHola Sergio. Solicito una visita técnica en mi domicilio para evaluar mis instalaciones y recibir un presupuesto o asesoramiento profesional sin cargo.";
             }
 
-            // Deslizar y resaltar
-            formContacto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Desliza para que el formulario se vea completo en la base de la pantalla
+            formContacto.scrollIntoView({ behavior: 'smooth', block: 'end' });
             
             formContacto.style.transition = "box-shadow 0.3s ease, border-color 0.3s ease";
             formContacto.style.borderColor = "var(--ngc-neon)";
@@ -51,19 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Aseguramos que los íconos Lucide se rendericen
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
 });
 
-// 3. FUNCIÓN PARA MOSTRAR / OCULTAR INFO TÉCNICA EXTRA
+// 3. MOSTRAR / OCULTAR INFO TÉCNICA
 function toggleInfo(id) {
     const infoBox = document.getElementById(id);
     if (infoBox) {
         if (infoBox.classList.contains('oculto')) {
             infoBox.classList.remove('oculto');
-            // Animación suave inline
             infoBox.style.opacity = 0;
             infoBox.style.transition = "opacity 0.4s ease";
             setTimeout(() => infoBox.style.opacity = 1, 10);
@@ -83,7 +78,6 @@ function handleSubmit() {
     setTimeout(() => {
         document.getElementById('consultForm').style.display = 'none';
         document.getElementById('success-message').classList.remove('oculto');
-        
         btn.innerHTML = btnOriginalHTML;
         btn.style.pointerEvents = 'auto';
     }, 1500);
@@ -124,4 +118,4 @@ function compartirWeb() {
             alert("¡Enlace copiado al portapapeles!");
         });
     }
-                  }
+                                      }
