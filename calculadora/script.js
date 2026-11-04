@@ -50,6 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function abrirModalAparatos() { document.getElementById('modal-aparatos').classList.remove('oculto'); }
 function cerrarModalAparatos() { document.getElementById('modal-aparatos').classList.add('oculto'); }
 
+// ==========================================
+// CONTROL SECUENCIAL DE MODALES Y SELECCIÓN
+// ==========================================
+
 function selectOption(val, text) {
     const hiddenInput = document.getElementById('aparato');
     hiddenInput.value = val;
@@ -69,9 +73,6 @@ function selectOption(val, text) {
     if (recomendacionesData[text]) {
         aparatoActualRecomendado = text;
         
-        // Mantenemos ocultos los sliders de fondo
-        document.getElementById('sliders-container').classList.add('oculto');
-        
         // Retraso de 0.6 segundos para que abra el modal de recomendación suavemente
         setTimeout(() => {
             abrirModalRecomendacion();
@@ -80,13 +81,14 @@ function selectOption(val, text) {
     } else {
         aparatoActualRecomendado = null;
         
-        // Si no hay recomendación, esperamos 0.6s y mostramos los controles manuales
+        // Si no hay recomendación, esperamos 0.6s y mostramos el modal manual
         setTimeout(() => {
-            document.getElementById('sliders-container').classList.remove('oculto');
+            abrirModalManual();
         }, 600);
     }
 }
 
+// Funciones del Modal Técnico (Recomendación)
 function abrirModalRecomendacion() {
     if(!aparatoActualRecomendado || !recomendacionesData[aparatoActualRecomendado]) return;
     
@@ -104,73 +106,6 @@ function abrirModalRecomendacion() {
     document.getElementById('modal-recomendacion').classList.remove('oculto');
 }
 
-function ingresoManual() {
-    // Cerramos el modal de recomendación
-    cerrarModalRecomendacion();
-    
-    // Retraso de 0.5 segundos para que termine la animación de cierre 
-    // antes de mostrar el panel manual (días y horas) en la web
-    setTimeout(() => {
-        document.getElementById('sliders-container').classList.remove('oculto');
-    }, 500);
-}
-
-function resetAll() {
-    listado = [];
-    const inputObj = document.getElementById('aparato');
-    if(inputObj) {
-        inputObj.value = "0";
-        inputObj.setAttribute('data-text', "");
-    }
-    
-    document.getElementById("horas").value = 4; document.getElementById("horas-val").innerText = "4 hs";
-    document.getElementById("dias").value = 7; document.getElementById("dias-val").innerText = "7 días";
-    
-    document.getElementById('btn-aparato-trigger').classList.remove('oculto');
-    document.getElementById('aparato-seleccionado-container').classList.add('oculto');
-    document.getElementById('sliders-container').classList.add('oculto');
-    
-    render();
-}
-
-/* function selectOption(val, text) {
-    const hiddenInput = document.getElementById('aparato');
-    hiddenInput.value = val;
-    hiddenInput.setAttribute('data-text', text);
-    
-    document.getElementById('aparato-seleccionado-nombre').innerText = text;
-    document.getElementById('aparato-seleccionado-watts').innerText = val + " W de potencia (Nominal)"; 
-    
-    document.getElementById('btn-aparato-trigger').classList.add('oculto');
-    document.getElementById('aparato-seleccionado-container').classList.remove('oculto');
-    
-    if (recomendacionesData[text]) {
-        aparatoActualRecomendado = text;
-        document.getElementById('reco-texto').innerText = `Uso recomendado de ${recomendacionesData[text].horas} hs y ${recomendacionesData[text].dias} días.`;
-        document.getElementById('recomendacion-container').classList.remove('oculto');
-        document.getElementById('sliders-container').classList.add('oculto');
-    } else {
-        aparatoActualRecomendado = null;
-        document.getElementById('recomendacion-container').classList.add('oculto');
-        document.getElementById('sliders-container').classList.remove('oculto');
-    }
-
-    cerrarModalAparatos();
-} */
-
-document.addEventListener("click", function(event) {
-    const modalAparatos = document.getElementById('modal-aparatos');
-    const modalReco = document.getElementById('modal-recomendacion');
-    if (event.target === modalAparatos) cerrarModalAparatos();
-    if (event.target === modalReco) cerrarModalRecomendacion();
-});
-
-/* function abrirModalRecomendacion() {
-    if(!aparatoActualRecomendado || !recomendacionesData[aparatoActualRecomendado]) return;
-    document.getElementById('modal-reco-desc').innerText = recomendacionesData[aparatoActualRecomendado].desc;
-    document.getElementById('modal-recomendacion').classList.remove('oculto');
-} */
-
 function cerrarModalRecomendacion() {
     document.getElementById('modal-recomendacion').classList.add('oculto');
 }
@@ -184,33 +119,48 @@ function usarRecomendacion() {
     document.getElementById('dias-val').innerText = dias + " días";
     
     cerrarModalRecomendacion();
-    agregarItem();
+    
+    // Un pequeño retraso para que cierre el modal antes de agregar a la lista
+    setTimeout(() => {
+        agregarItem();
+    }, 400);
 }
 
-/* function ingresoManual() {
+function ingresoManual() {
+    // Cerramos el modal de recomendación
     cerrarModalRecomendacion();
-    document.getElementById('recomendacion-container').classList.add('oculto');
-    document.getElementById('sliders-container').classList.remove('oculto');
-} */
+    
+    // Retraso de 0.6 segundos para que termine la animación de cierre 
+    // antes de mostrar el panel manual
+    setTimeout(() => {
+        abrirModalManual();
+    }, 600);
+}
 
-/* function resetAll() {
-    listado = [];
-    const inputObj = document.getElementById('aparato');
-    if(inputObj) {
-        inputObj.value = "0";
-        inputObj.setAttribute('data-text', "");
-    }
+// Funciones del Nuevo Modal Manual
+function abrirModalManual() {
+    document.getElementById('modal-manual').classList.remove('oculto');
+}
+
+function cerrarModalManual() {
+    document.getElementById('modal-manual').classList.add('oculto');
+}
+
+
+// Cierre global haciendo click en el fondo de cualquier modal
+document.addEventListener("click", function(event) {
+    const modalAparatos = document.getElementById('modal-aparatos');
+    const modalReco = document.getElementById('modal-recomendacion');
+    const modalManual = document.getElementById('modal-manual'); 
     
-    document.getElementById("horas").value = 4; document.getElementById("horas-val").innerText = "4 hs";
-    document.getElementById("dias").value = 7; document.getElementById("dias-val").innerText = "7 días";
-    
-    document.getElementById('btn-aparato-trigger').classList.remove('oculto');
-    document.getElementById('aparato-seleccionado-container').classList.add('oculto');
-    document.getElementById('recomendacion-container').classList.add('oculto');
-    document.getElementById('sliders-container').classList.add('oculto');
-    
-    render();
-} */
+    if (event.target === modalAparatos) cerrarModalAparatos();
+    if (event.target === modalReco) cerrarModalRecomendacion();
+    if (event.target === modalManual) cerrarModalManual();
+});
+
+// ==========================================
+// FUNCIONES GENERALES (AGREGAR, RESETEAR Y CALCULAR)
+// ==========================================
 
 function agregarItem() {
     const inputObj = document.getElementById('aparato');
@@ -226,10 +176,34 @@ function agregarItem() {
     
     inputObj.value = "0";
     
+    // Resetea la interfaz de fondo y oculta la configuración actual
     document.getElementById('btn-aparato-trigger').classList.remove('oculto');
     document.getElementById('aparato-seleccionado-container').classList.add('oculto');
-    document.getElementById('recomendacion-container').classList.add('oculto');
-    document.getElementById('sliders-container').classList.add('oculto');
+    
+    // Cierra el modal manual automáticamente al añadir
+    cerrarModalManual();
+    
+    render();
+}
+
+
+function resetAll() {
+    listado = [];
+    const inputObj = document.getElementById('aparato');
+    if(inputObj) {
+        inputObj.value = "0";
+        inputObj.setAttribute('data-text', "");
+    }
+    
+    document.getElementById("horas").value = 4; document.getElementById("horas-val").innerText = "4 hs";
+    document.getElementById("dias").value = 7; document.getElementById("dias-val").innerText = "7 días";
+    
+    document.getElementById('btn-aparato-trigger').classList.remove('oculto');
+    document.getElementById('aparato-seleccionado-container').classList.add('oculto');
+    
+    // Nos aseguramos que todos los modales estén cerrados si alguien hace un reset forzado
+    cerrarModalRecomendacion();
+    cerrarModalManual();
     
     render();
 }
@@ -348,39 +322,4 @@ function recalcularTotal() {
         tierUI.classList.add('oculto');
     }
 }
-// Agrega o reemplaza estas funciones en tu script.js (Calculadora)
-
-function toggleAccordion(targetId) {
-    const targetContent = document.getElementById(targetId);
-    const headerIcon = targetContent.previousElementSibling.querySelector('.acc-icon-indicator');
-    const isOpening = targetContent.style.display === 'none' || targetContent.style.display === '';
-
-    // Primero cerramos absolutamente todos los acordeones
-    document.querySelectorAll('.accordion-content').forEach(c => {
-        c.style.display = 'none';
-    });
-    // Volvemos todas las flechitas a su posición original
-    document.querySelectorAll('.acc-icon-indicator').forEach(i => {
-        i.style.transform = 'rotate(0deg)';
-    });
-
-    // Si se hizo clic para abrirlo, lo desplegamos
-    if (isOpening) {
-        targetContent.style.display = 'flex'; // Usamos flex para que mantenga la grilla interna
-        if(headerIcon) headerIcon.style.transform = 'rotate(180deg)';
-    }
-}
-
-function abrirModalAparatos() { 
-    document.getElementById('modal-aparatos').classList.remove('oculto'); 
-}
-
-function cerrarModalAparatos() { 
-    document.getElementById('modal-aparatos').classList.add('oculto'); 
     
-    // Opcional: Resetea todos los acordeones para que la próxima vez que entres estén cerrados
-    setTimeout(() => {
-        document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
-        document.querySelectorAll('.acc-icon-indicator').forEach(i => i.style.transform = 'rotate(0deg)');
-    }, 300);
-}
