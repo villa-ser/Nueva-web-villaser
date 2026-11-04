@@ -96,7 +96,7 @@
 
     <!-- CONTENEDOR PRINCIPAL -->
     <main class="layout-wrapper" style="padding-top: 80px;">
-        <div class="container">
+        <div class="container" style="gap: 25px;">
             
             <!-- TARJETA DE INTRODUCCIÓN -->
             <div class="corp-card fade-in-up">
@@ -108,19 +108,21 @@
                 <p style="text-align: center; font-size: 0.9rem; margin-bottom: 20px; color: var(--ngc-text-main); line-height: 1.5;">
                     Toda instalación requiere planificación, materiales confiables y una ejecución bajo <strong>estrictas normas de seguridad (Ley 10.281)</strong>.
                 </p>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <button type="button" id="btn-presupuesto" class="corp-btn corp-btn-large primary-action">
-                        <i data-lucide="clipboard-list"></i> Pedir Presupuesto
-                    </button>
+                <div style="display: flex; flex-direction: column;">
                     <button type="button" id="btn-beneficio" class="corp-btn corp-btn-large" style="background: rgba(0, 212, 255, 0.05); border: 1px solid var(--ngc-neon); color: var(--ngc-neon);">
                         <i data-lucide="ticket"></i> Solicitar Visita Bonificada
                     </button>
                 </div>
             </div>
 
-            <!-- TARJETA FORMULARIO (Se desplaza al hacer clic en presupuesto) -->
-            <div class="corp-card fade-in-up" id="formulario-contacto">
-                <h3 class="corp-card-title"><i data-lucide="mail" class="corp-accent-color"></i> Formulario de Consulta</h3>
+            <!-- TARJETA FORMULARIO (Oculta por defecto) -->
+            <div class="corp-card fade-in-up oculto" id="formulario-contacto">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 class="corp-card-title" style="margin: 0;"><i data-lucide="mail" class="corp-accent-color"></i> Formulario de Consulta</h3>
+                    <button type="button" class="corp-btn-icon" style="width: 32px; height: 32px;" onclick="document.getElementById('formulario-contacto').classList.add('oculto');">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
                 <p style="font-size: 0.85rem; color: var(--ngc-text-faded); margin-bottom: 15px;">Completá los datos y te responderé a la brevedad con el asesoramiento necesario.</p>
                 
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
@@ -154,218 +156,207 @@
                 </div>
             </div>
 
-            <!-- LISTA DE SERVICIOS (Acordeones Nativos HTML5 corporativos) -->
+            <!-- ========================================== -->
+            <!-- LISTA DE SERVICIOS (Estilo Alternado Premium) -->
+            <!-- ========================================== -->
             
-            <!-- 1. APTO ELÉCTRICO -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="file-check" class="corp-accent-color"></i> Apto Eléctrico
+            <!-- 1. APTO ELÉCTRICO (Ícono Izquierda) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="file-check" style="width: 32px; height: 32px;"></i>
                     </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 10px;">Verificación de la instalación conforme a las <strong>normas de seguridad</strong>. Incluye memoria técnica y gráfica con fotos.</p>
-                    <p style="font-size: 0.85rem; color: var(--ngc-text-faded); margin-bottom: 15px;">Documento obligatorio emitido exclusivamente por un <strong>Electricista Habilitado (Cat. III)</strong>.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20necesito%20consultarte%20por%20un%20Apto%20Eléctrico." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=apto_electrico" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-apto')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
-
-                    <div id="info-apto" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin-bottom: 8px;">Según resolución del ERSeP, la Categoría III habilita a intervenir en instalaciones destinadas a vivienda unifamiliar y pequeños comercios.</p>
-                        <p style="margin-bottom: 8px;"><strong>Límites técnicos:</strong> Baja Tensión y potencia máxima de hasta 10kW.</p>
-                        <p style="margin: 0; font-size: 0.75rem; opacity: 0.8;"><i class="fas fa-book"></i> <em>Fuente: Resolución ERSeP - Competencia Cat. III.</em></p>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Apto Eléctrico</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">Verificación de la instalación conforme a las <strong>normas de seguridad</strong>. Incluye memoria técnica y gráfica con fotos.</p>
                     </div>
                 </div>
-            </details>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-apto')"><i class="fas fa-info-circle"></i> Info Técnica</button>
+                    <a href="../buscadorinteligente/index.html?servicio=apto_electrico" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                </div>
 
-            <!-- 2. CABLEADO -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="cable" class="corp-accent-color"></i> Cableado y Recableado
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 15px;">El sistema de venas por donde llega la energía. Materiales deficientes o mal canalizados pueden producir <strong>sobrecalentamiento o incendios</strong>.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20necesito%20consultarte%20por%20un%20trabajo%20de%20cableado." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=cableado" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-cableado')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
+                <div id="info-apto" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin-bottom: 8px;">Documento obligatorio emitido por un <strong>Electricista Habilitado (Cat. III)</strong>.</p>
+                    <p style="margin-bottom: 8px;">Según resolución del ERSeP, la Categoría III habilita a intervenir en viviendas unifamiliares y pequeños comercios.</p>
+                    <p style="margin: 0;"><strong>Límites:</strong> Baja Tensión y potencia máxima de hasta 10kW.</p>
+                </div>
+            </div>
 
-                    <div id="info-cableado" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin-bottom: 8px;">Ejecución bajo estrictos lineamientos de la <strong>Ley de Seguridad Eléctrica (Ley 10.281)</strong>.</p>
-                        <p style="margin: 0;">Se emplean reglamentaciones <strong>AEA</strong> y conductores certificados bajo <strong>Normas IRAM</strong> para garantizar eficiencia térmica.</p>
+            <!-- 2. CABLEADO (Ícono Derecha) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px; flex-direction: row-reverse; text-align: right;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="cable" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Cableado y Recableado</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">El sistema de venas por donde llega la energía. Materiales deficientes o mal canalizados pueden producir <strong>sobrecalentamiento o incendios</strong>.</p>
                     </div>
                 </div>
-            </details>
+                
+                <div style="display: flex; gap: 10px;">
+                    <a href="../buscadorinteligente/index.html?servicio=cableado" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-cableado')"><i class="fas fa-info-circle"></i> Info Técnica</button>
+                </div>
 
-            <!-- 3. DIFERENCIALES -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="zap-off" class="corp-accent-color"></i> Diferenciales (Disyuntores)
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 15px;">Cortan el suministro si detectan una <strong>fuga eléctrica</strong>, siendo vitales para proteger la vida de las personas.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20necesito%20revisar%20o%20instalar%20un%20disyuntor." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=diferencial" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-disyuntor')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
+                <div id="info-cableado" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin-bottom: 8px;">Ejecución bajo estrictos lineamientos de la <strong>Ley de Seguridad Eléctrica (Ley 10.281)</strong>.</p>
+                    <p style="margin: 0;">Se emplean reglamentaciones <strong>AEA</strong> y conductores certificados bajo <strong>Normas IRAM</strong> para garantizar eficiencia térmica.</p>
+                </div>
+            </div>
 
-                    <div id="info-disyuntor" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin: 0;">Instalación y prueba de accionamiento de dispositivos de corriente residual según lineamientos de <strong>AEA y Ley 10.281</strong>, previniendo contactos indirectos.</p>
+            <!-- 3. DIFERENCIALES (Ícono Izquierda) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="zap-off" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Diferenciales (Disyuntores)</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">Cortan el suministro si detectan una <strong>fuga eléctrica</strong>, siendo vitales para proteger la vida de las personas.</p>
                     </div>
                 </div>
-            </details>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-disyuntor')"><i class="fas fa-info-circle"></i> Info Técnica</button>
+                    <a href="../buscadorinteligente/index.html?servicio=diferencial" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                </div>
 
-            <!-- 4. LUZ DE OBRA -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="hard-hat" class="corp-accent-color"></i> Luz de Obra
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 15px;">Conexión provisoria segura y normalizada (monofásica o trifásica) para uso de maquinaria de construcción.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20necesito%20armar%20un%20pilar%20para%20Luz%20de%20Obra." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=armado_de_pilar" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-obra')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
+                <div id="info-disyuntor" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin: 0;">Instalación y prueba de accionamiento de dispositivos de corriente residual según lineamientos de <strong>AEA y Ley 10.281</strong>, previniendo contactos indirectos.</p>
+                </div>
+            </div>
 
-                    <div id="info-obra" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin: 0;">Montaje de pilares provisorios certificados ante <strong>EPEC / ERSeP</strong>, garantizando que el obrador opere bajo condiciones de seguridad (Ley 10.281).</p>
+            <!-- 4. LUZ DE OBRA (Ícono Derecha) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px; flex-direction: row-reverse; text-align: right;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="hard-hat" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Luz de Obra</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">Conexión provisoria segura y normalizada (monofásica o trifásica) para uso de maquinaria de construcción.</p>
                     </div>
                 </div>
-            </details>
+                
+                <div style="display: flex; gap: 10px;">
+                    <a href="../buscadorinteligente/index.html?servicio=armado_de_pilar" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-obra')"><i class="fas fa-info-circle"></i> Info Técnica</button>
+                </div>
 
-            <!-- 5. LUMINARIAS -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="lamp" class="corp-accent-color"></i> Luminaria y Artefactos
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 15px;">Instalación de iluminación interior, exterior, spots LED y ventiladores de techo con anclaje seguro.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20necesito%20instalar%20luminarias." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=luminaria" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-luminaria')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
+                <div id="info-obra" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin: 0;">Montaje de pilares provisorios certificados ante <strong>EPEC / ERSeP</strong>, garantizando que el obrador opere bajo condiciones de seguridad (Ley 10.281).</p>
+                </div>
+            </div>
 
-                    <div id="info-luminaria" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin: 0;">Dimensionamiento correcto de circuitos de iluminación respetando consumos y parámetros lumínicos estipulados por <strong>AEA</strong>.</p>
+            <!-- 5. LUMINARIAS (Ícono Izquierda) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="lamp" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Luminaria y Artefactos</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">Instalación de iluminación interior, exterior, spots LED y ventiladores de techo con anclaje seguro.</p>
                     </div>
                 </div>
-            </details>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-luminaria')"><i class="fas fa-info-circle"></i> Info Técnica</button>
+                    <a href="../buscadorinteligente/index.html?servicio=luminaria" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                </div>
 
-            <!-- 6. PLANOS -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="layout" class="corp-accent-color"></i> Plano Eléctrico
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 15px;">Memoria descriptiva gráfica de la instalación. Detalla el recorrido de circuitos y bocas.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20necesito%20confeccionar%20un%20Plano%20Eléctrico." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=planos" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-planos')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
+                <div id="info-luminaria" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin: 0;">Dimensionamiento correcto de circuitos de iluminación respetando consumos y parámetros lumínicos estipulados por <strong>AEA</strong>.</p>
+                </div>
+            </div>
 
-                    <div id="info-planos" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin: 0;">Documentación esquemática y topográfica ajustada a los estándares de representación de la <strong>AEA</strong>, facilitando adecuaciones futuras (Ley 10.281).</p>
+            <!-- 6. PLANOS (Ícono Derecha) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px; flex-direction: row-reverse; text-align: right;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="layout" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Plano Eléctrico</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">Memoria descriptiva gráfica de la instalación. Detalla el recorrido de circuitos y bocas.</p>
                     </div>
                 </div>
-            </details>
+                
+                <div style="display: flex; gap: 10px;">
+                    <a href="../buscadorinteligente/index.html?servicio=planos" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-planos')"><i class="fas fa-info-circle"></i> Info Técnica</button>
+                </div>
 
-             <!-- 7. PUESTA A TIERRA -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="arrow-down-to-line" class="corp-accent-color"></i> Puesta a Tierra (Jabalina)
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 15px;">Sistema encargado de disipar fugas de corriente al suelo. Actúa junto al diferencial para <strong>salvar vidas</strong>.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20necesito%20revisar%20la%20Puesta%20a%20Tierra." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=puesta_tierra" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-tierra')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
+                <div id="info-planos" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin: 0;">Documentación esquemática y topográfica ajustada a los estándares de representación de la <strong>AEA</strong>, facilitando adecuaciones futuras (Ley 10.281).</p>
+                </div>
+            </div>
 
-                    <div id="info-tierra" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin: 0;">Hincado de electrodos y tendido de cable de protección PE (verde/amarillo) según normativa <strong>IRAM</strong> y <strong>AEA</strong> para el esquema TT exigido en Córdoba.</p>
+            <!-- 7. PUESTA A TIERRA (Ícono Izquierda) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="arrow-down-to-line" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Puesta a Tierra</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">Sistema encargado de disipar fugas de corriente al suelo. Actúa junto al diferencial para <strong>salvar vidas</strong>.</p>
                     </div>
                 </div>
-            </details>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-tierra')"><i class="fas fa-info-circle"></i> Info Técnica</button>
+                    <a href="../buscadorinteligente/index.html?servicio=puesta_tierra" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                </div>
 
-            <!-- 8. TABLEROS -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="toggle-right" class="corp-accent-color"></i> Tableros y Termomagnéticas
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <p style="font-size: 0.9rem; color: var(--ngc-text-main); margin-bottom: 15px;">Armado, normalización y mantenimiento de tableros eléctricos. Protecciones contra <strong>cortocircuitos y sobrecargas</strong>.</p>
-                    
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <a href="https://wa.me/543513559347?text=Hola%20Sergio,%20tengo%20un%20problema%20en%20el%20tablero." target="_blank" class="corp-btn corp-btn-small success-btn" style="flex: 1; min-width: 120px;"><i class="fab fa-whatsapp"></i> Consultar</a>
-                        <a href="../buscadorinteligente/index.html?servicio=tablero" class="corp-btn corp-btn-small primary-action" style="flex: 1; min-width: 120px;"><i class="fas fa-tags"></i> Precios</a>
-                        <button type="button" class="corp-btn corp-btn-small" style="flex: 1; min-width: 120px;" onclick="toggleInfo('info-tableros')"><i class="fas fa-info-circle"></i> Info Técnica</button>
-                    </div>
+                <div id="info-tierra" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin: 0;">Hincado de electrodos y tendido de cable de protección PE (verde/amarillo) según normativa <strong>IRAM</strong> y <strong>AEA</strong> para el esquema TT exigido en Córdoba.</p>
+                </div>
+            </div>
 
-                    <div id="info-tableros" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.8rem; color: var(--ngc-text-faded);">
-                        <p style="margin: 0;">Ensamblado y recableado interno de Tableros Principales (TP) y Seccionales (TS) con selectividad térmica según <strong>Ley 10.281</strong>.</p>
+            <!-- 8. TABLEROS (Ícono Derecha) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px;">
+                <div style="display: flex; gap: 20px; align-items: flex-start; margin-bottom: 20px; flex-direction: row-reverse; text-align: right;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; border-radius: 16px; background: rgba(35, 116, 225, 0.1); display: flex; justify-content: center; align-items: center; color: var(--ngc-neon);">
+                        <i data-lucide="toggle-right" style="width: 32px; height: 32px;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0 0 8px 0; font-size: 1.1rem; color: var(--ngc-text-main);">Tableros Eléctricos</h3>
+                        <p style="font-size: 0.9rem; color: var(--ngc-text-faded); margin: 0; line-height: 1.5;">Armado, normalización y mantenimiento de tableros eléctricos. Protecciones contra <strong>cortocircuitos y sobrecargas</strong>.</p>
                     </div>
                 </div>
-            </details>
-
-            <!-- 9. MÁS SOLUCIONES -->
-            <details name="servicios" class="corp-details fade-in-up">
-                <summary class="corp-details-summary">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="list-checks" class="corp-accent-color"></i> Más Soluciones...
-                    </div>
-                    <i class="fa-solid fa-chevron-down acc-icon-indicator"></i>
-                </summary>
-                <div style="padding: 15px; border-top: 1px solid var(--ngc-privacy-border);">
-                    <ul style="list-style-type: none; padding-left: 0; font-size: 0.85rem; line-height: 2; color: var(--ngc-text-faded); margin: 0;">
-                        <li><i data-lucide="check-circle-2" style="width:14px; color:var(--ngc-neon); vertical-align: middle; margin-right:5px;"></i> Visita de inspección y diagnóstico</li>
-                        <li><i data-lucide="check-circle-2" style="width:14px; color:var(--ngc-neon); vertical-align: middle; margin-right:5px;"></i> Búsqueda de fugas de corriente</li>
-                        <li><i data-lucide="check-circle-2" style="width:14px; color:var(--ngc-neon); vertical-align: middle; margin-right:5px;"></i> Canalización externa (cablecanal)</li>
-                        <li><i data-lucide="check-circle-2" style="width:14px; color:var(--ngc-neon); vertical-align: middle; margin-right:5px;"></i> Sensores de movimiento / fotocontroles</li>
-                        <li><i data-lucide="check-circle-2" style="width:14px; color:var(--ngc-neon); vertical-align: middle; margin-right:5px;"></i> Porteros eléctricos y cerraduras</li>
-                        <li><i data-lucide="check-circle-2" style="width:14px; color:var(--ngc-neon); vertical-align: middle; margin-right:5px;"></i> Empalmes subterráneos</li>
-                    </ul>
+                
+                <div style="display: flex; gap: 10px;">
+                    <a href="../buscadorinteligente/index.html?servicio=tablero" class="corp-btn corp-btn-small primary-action flex-1"><i class="fas fa-tags"></i> Precios</a>
+                    <button type="button" class="corp-btn corp-btn-small flex-1" onclick="toggleInfo('info-tableros')"><i class="fas fa-info-circle"></i> Info Técnica</button>
                 </div>
-            </details>
+
+                <div id="info-tableros" class="oculto" style="margin-top: 15px; padding: 12px; background: var(--ngc-bg-input); border-left: 3px solid var(--ngc-neon); border-radius: 4px; font-size: 0.85rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                    <p style="margin: 0;">Ensamblado y recableado interno de Tableros Principales (TP) y Seccionales (TS) con selectividad térmica según <strong>Ley 10.281</strong>.</p>
+                </div>
+            </div>
+
+            <!-- 9. MÁS SOLUCIONES (Caja Final) -->
+            <div class="corp-card fade-in-up" style="padding: 25px 20px; background: linear-gradient(135deg, var(--ngc-glass), rgba(35, 116, 225, 0.05)); border: 1px solid var(--ngc-neon);">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <i data-lucide="list-checks" class="corp-accent-color" style="width: 24px; height: 24px;"></i>
+                    <h3 style="margin: 0; font-size: 1.1rem; color: var(--ngc-text-main);">Más Soluciones...</h3>
+                </div>
+                <ul style="list-style-type: none; padding-left: 0; font-size: 0.9rem; line-height: 2; color: var(--ngc-text-faded); margin: 0;">
+                    <li><i data-lucide="check-circle-2" style="width:16px; color:var(--ngc-neon); vertical-align: middle; margin-right:8px;"></i> Visita de inspección y diagnóstico</li>
+                    <li><i data-lucide="check-circle-2" style="width:16px; color:var(--ngc-neon); vertical-align: middle; margin-right:8px;"></i> Búsqueda de fugas de corriente</li>
+                    <li><i data-lucide="check-circle-2" style="width:16px; color:var(--ngc-neon); vertical-align: middle; margin-right:8px;"></i> Canalización externa (cablecanal)</li>
+                    <li><i data-lucide="check-circle-2" style="width:16px; color:var(--ngc-neon); vertical-align: middle; margin-right:8px;"></i> Sensores / fotocontroles</li>
+                    <li><i data-lucide="check-circle-2" style="width:16px; color:var(--ngc-neon); vertical-align: middle; margin-right:8px;"></i> Porteros y cerraduras</li>
+                    <li><i data-lucide="check-circle-2" style="width:16px; color:var(--ngc-neon); vertical-align: middle; margin-right:8px;"></i> Empalmes subterráneos</li>
+                </ul>
+            </div>
 
             <!-- FOOTER CORPORATIVO -->
-            <div class="corp-card fade-in-up" style="margin-top: 10px; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+            <div class="corp-card fade-in-up" style="margin-top: 5px; margin-bottom: 15px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
                 <div style="display: flex; justify-content: center; gap: 15px; width: 100%;">
                     <a href="mailto:contacto@villaser.com.ar" class="corp-btn-icon"><i class="far fa-envelope"></i></a>
                     <a href="https://instagram.com/villaserelectricista" target="_blank" class="corp-btn-icon"><i class="fab fa-instagram"></i></a>
@@ -384,5 +375,5 @@
     <script src="../js/global.js" defer></script>
     <script src="script.js" defer></script>
     </body>
-                                
+    
 </html>
