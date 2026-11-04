@@ -365,48 +365,6 @@ details[open] summary .acc-icon-indicator {
 /* NUEVAS ANIMACIONES: HERO BANNER Y FADE-IN SCROLL               */
 /* ============================================================== */
 
-/* 1. Contenedor que mantiene el marco intacto (Masking) */
-/*.hero-banner-container {
-    width: 100%;
-    height: 350px; /* Altura del cuadro del operario */
-    position: relative;
-    overflow: hidden; /* Esto es lo que mantiene la imagen dentro del cuadro */
-    border-radius: 12px 12px 0 0; /* Coincide con las esquinas de tu tarjeta */
-    background: var(--ngc-bg-input); /* Fondo de carga */
-}*/
-
-/* 2. La imagen del operario que se mueve */
-/*.hero-banner-animado {
-    width: 120%; /* Se hace un 20% más ancho para tener margen de movimiento */
-    height: 100%;
- /*   background-image: url('img/perfil.avif'); /* Llama a tu foto de perfil actual */
-  /*  background-size: cover;*/
-   /* background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /* Animación de 12 segundos, infinita, de ida y vuelta suave */
- /*   animation: panMove 12s infinite alternate ease-in-out;*/
-} */
-
-/* 3. Overlay opcional: Un sutil degradado oscuro abajo para unir con la tarjeta */
-/*.hero-overlay {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 50%;
-    background: linear-gradient(to bottom, transparent 0%, var(--ngc-glass) 100%);
-    pointer-events: none;
-}  */
-
-/* 4. La animación matemática del movimiento */
-/*@keyframes panMove {
-    0% { transform: translateX(0) scale(1); }
-    100% { transform: translateX(-10%) scale(1.05); } /* Se mueve a la izquierda y hace un leve zoom */
-} */
-
-/* 5. Clases para la animación de las tarjetas apareciendo (aire moderno) */
-* .fade-in-up {
- /*   opacity: 0; */
- /*   transform: translateY(20px); /* Empieza 20px más abajo */
- /*  transition: opacity 0.6s ease-out, transform 0.6s ease-out; */
-} */
 .fade-in-up.visible {
     opacity: 1;
     transform: translateY(0); /* Sube a su posición original */
