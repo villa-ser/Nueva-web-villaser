@@ -379,7 +379,7 @@ details[open] summary .acc-icon-indicator {
 .hero-banner-animado {
     width: 120%; /* Se hace un 20% más ancho para tener margen de movimiento */
     height: 100%;
-    background-image: url('perfil.avif'); /* Llama a tu foto de perfil actual */
+    background-image: url('img/perfil.avif'); /* Llama a tu foto de perfil actual */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
