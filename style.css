@@ -759,3 +759,32 @@ a.corp-btn-icon i {
 .corp-modal-card {
     animation: modalFadeInUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
+
+/* ============================================================== */
+/* ANIMACIÓN MENÚ LATERAL (CORREDIZA DERECHA A IZQUIERDA)         */
+/* ============================================================== */
+
+#app-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+    /* Estado inicial: oculto a la derecha de la pantalla */
+    transform: translateX(100%); 
+    visibility: hidden; /* Evita que bloquee clics cuando está cerrado */
+    
+    /* Curva de aceleración fluida estilo Apple */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0.4s;
+}
+
+#app-menu-overlay.menu-abierto {
+    /* Estado final: visible y encajado en la pantalla */
+    transform: translateX(0);
+    visibility: visible;
+}
