@@ -386,3 +386,20 @@ function recalcularTotal() {
     }
 }
     
+// LÓGICA PARA COMPARTIR LA WEB (Nativo en celulares)
+function compartirWeb() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Calculadora de consumo eléctrico en Córdoba Capital | Villaser',
+            text: 'Calculá el consumo eléctrico de tu hogar y estimá tu factura de EPEC. Herramienta gratuita para controlar tu gasto y optimizar el ahorro.',
+            url: window.location.href
+        }).catch((error) => console.log('Error al compartir:', error));
+    } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert("¡Enlace copiado al portapapeles!");
+        });
+    }
+}
+
+
+    
