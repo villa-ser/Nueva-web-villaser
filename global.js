@@ -17,6 +17,6 @@ function toggleTema() {
 function toggleMenuApp() {
     const menuOverlay = document.getElementById('app-menu-overlay');
     if (menuOverlay) {
-        menuOverlay.classList.toggle('oculto');
+        menuOverlay.classList.toggle('menu-abierto');
     }
 }
