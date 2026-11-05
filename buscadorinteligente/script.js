@@ -529,3 +529,21 @@ function busquedaRapida(termino) {
         btnBuscar.click();
     }
 }
+
+// LÓGICA PARA COMPARTIR LA WEB (Nativo en celulares)
+function compartirWeb() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Precios Referenciales de Mano de Obra | Villaser Electricista Categoría III',
+            text: 'Buscador de precios referenciales de mano de obra eléctrica en Córdoba. Consultá costos estimativos para instalaciones y reparaciones.',
+            url: window.location.href
+        }).catch((error) => console.log('Error al compartir:', error));
+    } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert("¡Enlace copiado al portapapeles!");
+        });
+    }
+}
+
+
+    
