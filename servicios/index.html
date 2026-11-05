@@ -88,12 +88,12 @@
     </button>
 </div>
 
-<!-- MENÚ OVERLAY (Pégalo justo debajo del Nav, antes del <main>) -->
-<div id="app-menu-overlay" class="oculto" style="position: fixed; inset: 0; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1000; display: flex; flex-direction: column; padding: 20px;">
+<!-- MENÚ OVERLAY CORREDIZO -->
+<div id="app-menu-overlay">
     
     <!-- Botón Cerrar -->
     <div style="display: flex; justify-content: flex-end; margin-bottom: 30px; margin-top: 10px;">
-        <button onclick="toggleMenuApp()" class="corp-btn-icon" style="background: var(--error-red); color: white; border: none;">
+        <button onclick="toggleMenuApp()" class="corp-btn-icon" style="background: var(--error-red); color: white; border: none;" aria-label="Cerrar menú">
             <i class="fa-solid fa-xmark"></i>
         </button>
     </div>
@@ -112,6 +112,7 @@
         <a href="../webs/index.html" class="corp-btn corp-btn-large" style="justify-content: flex-start;"><i class="fa-solid fa-globe" style="width: 30px;"></i> Webs de Interés</a>
     </div>
 </div>
+        
         
 
     <!-- CONTENEDOR PRINCIPAL -->
