@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // LÓGICA CLON FLOTANTE CTA
     // ==========================================
-    const ctaOriginal = document.querySelector('.cta-escritorio');
+/*    const ctaOriginal = document.querySelector('.cta-escritorio');
     const colDerecha = document.querySelector('.col-derecha');
     
     if (ctaOriginal && colDerecha) {
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (window.scrollY > 300 && !isColDerechaVisible) ctaClone.classList.add('visible');
             else ctaClone.classList.remove('visible'); 
         }
-    }
+    } */
 
     // ==========================================
     // LECTURA DE URL PARAMS (?servicio=)
