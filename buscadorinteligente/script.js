@@ -1,3 +1,30 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. LÓGICA DE ANIMACIÓN FADE-IN EN ESCALERA (SCROLL)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -20px 0px', 
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        const elementosVisibles = entries.filter(entry => entry.isIntersecting);
+        elementosVisibles.forEach((entry, index) => {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 120); 
+            observer.unobserve(entry.target);
+        });
+    }, observerOptions);
+
+    const elementosAnimar = document.querySelectorAll('.fade-in-up');
+    elementosAnimar.forEach(el => observer.observe(el));
+
+    // Renderizar iconos de Lucide
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+});
+
 // =========================================================
 // SCRIPTS ESPECÍFICOS DEL "BUSCADOR INTELIGENTE"
 // =========================================================
