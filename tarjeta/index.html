@@ -9,33 +9,14 @@
     <link rel="canonical" href="https://villaser.com.ar/tarjeta/" />
     
     <meta name="description" content="Contactá a Sergio Villagra, electricista habilitado Categoría III. Guardá esta tarjeta virtual para asesoramiento técnico y urgencias en Córdoba.">
-    <meta name="keywords" content="contacto electricista cordoba, telefono electricista, tarjeta virtual electricista, urgencias electricas">
-    <meta name="author" content="Sergio Adrian Villagra">
     
     <link rel="icon" type="image/png" href="../img/tarjeta.avif">
     
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Tarjeta - Sergio Villagra - Electricista - Córdoba">
-    <meta property="og:description" content="Contactá a Sergio Villagra, electricista habilitado Categoría III. Guardá esta tarjeta virtual para asesoramiento técnico y urgencias en Córdoba.">
-    <meta property="og:url" content="https://villaser.com.ar/tarjeta/index.html">
-    
-    <meta property="og:image" content="https://villaser.com.ar/img/tarjeta.avif">
-    <meta property="og:image:secure_url" content="https://villaser.com.ar/img/tarjeta.avif">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="600">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tarjeta - Sergio Villagra - Electricista - Córdoba">
-    <meta name="twitter:description" content="Contactá a Sergio Villagra, electricista habilitado Categoría III. Guardá esta tarjeta virtual para asesoramiento técnico y urgencias en Córdoba.">
-    <meta name="twitter:image" content="https://villaser.com.ar/img/tarjeta.avif">
-
     <!-- Script de ejecución inmediata para el tema -->
     <script>
         (function() {
             const temaGuardado = localStorage.getItem('temaVillaser');
             const prefiereClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
-            
             if (temaGuardado === 'light' || (!temaGuardado && prefiereClaro)) {
                 document.documentElement.setAttribute('data-theme', 'light');
             } else {
@@ -44,76 +25,82 @@
         })();
     </script>
 
-    <link rel="apple-touch-icon" href="../img/icono-miniatura.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <!-- Estilos -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body class="bg-tarjeta">
+<body>
 
-    <!-- NAV SUPERIOR (Estilo App unificado) -->
+    <!-- NAV SUPERIOR (Equilibrado: Flecha izq, Luna der) -->
     <div class="corp-top-nav" style="position: absolute; top: 15px; left: 15px; right: 15px; width: auto; z-index: 999; display: flex; justify-content: space-between; align-items: center;">
-        <div style="display: flex; gap: 10px;">
-            <a href="../index.html" class="corp-btn-icon" aria-label="Volver al Inicio">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
-            <button onclick="toggleTema()" class="corp-btn-icon" aria-label="Cambiar tema">
-                <i class="fa-solid fa-moon icono-tema-global" id="icono-tema"></i>
-            </button>
-        </div>
+        <a href="../index.html" class="corp-btn-icon" aria-label="Volver al Inicio">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <button onclick="toggleTema()" class="corp-btn-icon" aria-label="Cambiar tema">
+            <i class="fa-solid fa-moon icono-tema-global" id="icono-tema"></i>
+        </button>
     </div>
 
-    <!-- CONTENEDOR PRINCIPAL (Con padding inferior amplio para respetar tu foto abajo a la derecha) -->
-    <main class="layout-wrapper" style="padding-top: 80px; padding-bottom: 280px; min-height: 100vh;">
-        <div class="container" style="max-width: 450px; gap: 12px;">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="layout-wrapper" style="padding-top: 70px; padding-bottom: 20px; min-height: 100vh;">
+        <div class="container" style="max-width: 450px; gap: 12px; margin: 0 auto;">
             
-            <!-- TARJETA DE INFORMACIÓN / ENCABEZADO -->
-            <div class="fade-in-up" id="headerSection" style="text-align: center; margin-bottom: 15px;">
-                <h1 style="font-size: 1.8rem; color: var(--ngc-text-main); margin: 0 0 5px 0; font-weight: 700; letter-spacing: 1px;">SERGIO VILLAGRA</h1>
-                <div style="font-size: 0.8rem; color: var(--ngc-text-faded); text-transform: uppercase; letter-spacing: 1px; line-height: 1.6;">
-                    Electricista Habilitado Cat III<br>
-                    Idóneo Registro Nro.<br>
-                    <span style="color: var(--success-green); font-weight: bold; font-size: 0.9rem;">29029389 - 14027</span>
+            <!-- TARJETA DE PERFIL (Hero Banner Rediseñado) -->
+            <div class="corp-card fade-in-up" style="padding: 0; overflow: hidden; text-align: center; margin-bottom: 10px;">
+                
+                <!-- Banner: Enfoca y recorta solo la parte inferior de tu fondo actual (Logo y rostro) -->
+                <div class="hero-banner-container" style="height: 250px; width: 100%; position: relative;">
+                    <img src="../img/fondotarjeta.avif" alt="Fondo Villaser" class="logo-oscuro" style="width: 100%; height: 100%; object-fit: cover; object-position: bottom;">
+                    <img src="../img/fondotarjetaclaro.avif" alt="Fondo Villaser" class="logo-claro" style="width: 100%; height: 100%; object-fit: cover; object-position: bottom; display: none;">
+                    <div class="hero-overlay"></div>
+                </div>
+                
+                <!-- Datos de Contacto -->
+                <div style="padding: 20px;">
+                    <h1 style="font-size: 1.8rem; color: var(--ngc-text-main); margin: 0 0 5px 0; font-weight: 700; letter-spacing: 1px;">SERGIO VILLAGRA</h1>
+                    <div style="font-size: 0.85rem; color: var(--ngc-text-faded); text-transform: uppercase; letter-spacing: 1px; line-height: 1.6;">
+                        Electricista Habilitado Cat III<br>
+                        Idóneo Registro Nro.<br>
+                        <span style="color: var(--success-green); font-weight: bold; font-size: 0.95rem;">29029389 - 14027</span>
+                    </div>
                 </div>
             </div>
 
             <!-- BOTONES DE CONTACTO -->
             <div id="mainButtons" style="display: flex; flex-direction: column; gap: 12px;">
                 
-                <a href="https://wa.me/+543513559347/?text=Hola,%20necesito%20asesoramiento" target="_blank" class="corp-btn corp-btn-large fade-in-up visible" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
+                <a href="https://wa.me/+543513559347/?text=Hola,%20necesito%20asesoramiento" target="_blank" class="corp-btn corp-btn-large fade-in-up" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
                     <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">WHATSAPP</span>
                     <i class="fab fa-whatsapp" style="position: absolute; right: 20px; color: #25D366; font-size: 1.3rem;"></i>
                 </a>
                 
-                <a href="https://www.facebook.com/profile.php?id=100087189438289" target="_blank" class="corp-btn corp-btn-large fade-in-up visible" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
+                <a href="https://www.facebook.com/profile.php?id=100087189438289" target="_blank" class="corp-btn corp-btn-large fade-in-up" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
                     <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">FACEBOOK</span>
                     <i class="fab fa-facebook-f" style="position: absolute; right: 20px; color: #1877F2; font-size: 1.3rem;"></i>
                 </a>
                 
-                <a href="https://instagram.com/villaserelectricista" target="_blank" class="corp-btn corp-btn-large fade-in-up visible" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
+                <a href="https://instagram.com/villaserelectricista" target="_blank" class="corp-btn corp-btn-large fade-in-up" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
                     <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">INSTAGRAM</span>
                     <i class="fab fa-instagram" style="position: absolute; right: 20px; color: #E4405F; font-size: 1.3rem;"></i>
                 </a>
                 
-                <a href="mailto:contacto@villaser.com.ar" class="corp-btn corp-btn-large fade-in-up visible" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
+                <a href="mailto:contacto@villaser.com.ar" class="corp-btn corp-btn-large fade-in-up" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
                     <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">E-MAIL</span>
                     <i class="far fa-envelope" style="position: absolute; right: 20px; color: var(--ngc-neon); font-size: 1.3rem;"></i>
                 </a>
                 
-                <a href="https://villaser.com.ar" target="_blank" class="corp-btn corp-btn-large fade-in-up visible" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
+                <a href="https://villaser.com.ar" target="_blank" class="corp-btn corp-btn-large fade-in-up" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px;">
                     <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">PÁGINA WEB</span>
                     <i class="fa-solid fa-globe" style="position: absolute; right: 20px; color: var(--ngc-neon); font-size: 1.3rem;"></i>
                 </a>
                 
-                <div onclick="showForm()" class="corp-btn corp-btn-large fade-in-up visible" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px; cursor: pointer;">
+                <div onclick="showForm()" class="corp-btn corp-btn-large fade-in-up" style="position: relative; justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); padding: 18px; cursor: pointer;">
                     <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">FORMULARIO DE CONTACTO</span>
                     <i class="fa-solid fa-file-lines" style="position: absolute; right: 20px; color: var(--ngc-text-faded); font-size: 1.3rem;"></i>
                 </div>
                 
-                <div style="display: flex; gap: 10px; margin-top: 5px;" class="fade-in-up visible">
+                <div style="display: flex; gap: 10px; margin-top: 5px;" class="fade-in-up">
                     <button type="button" onclick="compartirTarjeta()" class="corp-btn flex-1" style="justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">
                        <i class="fa-solid fa-arrow-up-from-bracket"></i> COMPARTIR
                     </button>
@@ -148,10 +135,6 @@
                     <button type="submit" class="corp-btn corp-btn-large primary-action" id="btnSubmit" style="justify-content: center; margin-top: 10px;">
                         <i class="fa-solid fa-paper-plane"></i> Enviar Consulta
                     </button>
-                    
-                    <p style="font-size: 0.75rem; color: var(--ngc-text-faded); text-align: center; line-height: 1.4; margin: 0;">
-                        <i class="fa-solid fa-lock" style="margin-right: 3px;"></i> Tus datos son privados y se utilizarán exclusivamente para responder a tu consulta.
-                    </p>
                 </form>
                 
                 <div id="success-message" style="display: none; text-align: center; padding: 20px 0;">
