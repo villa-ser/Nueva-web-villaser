@@ -32,7 +32,7 @@
 </head>
 <body>
 
-    <!-- CONTENEDOR PRINCIPAL (Espaciado superior ajustado a 20px) -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <main class="layout-wrapper" style="padding-top: 20px; padding-bottom: 20px; min-height: 100vh;">
         <div class="container" style="max-width: 450px; gap: 12px; margin: 0 auto;">
             
@@ -42,7 +42,6 @@
                 <!-- Banner Hero con Botón de Tema integrado -->
                 <div class="hero-banner-container" style="height: 250px; width: 100%; position: relative;">
                     
-                    <!-- Botón de Tema en la esquina superior derecha (o cambia "right: 12px;" por "left: 12px;") -->
                     <button onclick="toggleTema()" class="corp-btn-icon" aria-label="Cambiar tema" style="position: absolute; top: 12px; right: 12px; z-index: 10; background: rgba(0, 0, 0, 0.4); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.25); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
                         <i class="fa-solid fa-moon" id="icono-tema"></i>
                     </button>
@@ -100,7 +99,7 @@
                     <button type="button" onclick="compartirTarjeta()" class="corp-btn flex-1" style="justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">
                        <i class="fa-solid fa-arrow-up-from-bracket"></i> COMPARTIR
                     </button>
-                    <button type="button" onclick="descargarVCard()" class="corp-btn flex-1" style="justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">
+                    <button type="button" onclick="abrirModalVCard()" class="corp-btn flex-1" style="justify-content: center; background: var(--ngc-glass); border: 1px solid var(--ngc-privacy-border); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;">
                        <i class="fa-solid fa-address-book"></i> AGENDAR
                     </button>
                 </div>
@@ -146,6 +145,38 @@
 
         </div>
     </main>
+
+    <!-- MODAL DE EXPLICACIÓN DE DESCARGA VCARD -->
+    <div id="modalVCard" class="modal-overlay oculto">
+        <div class="corp-modal-card">
+            <i class="fa-solid fa-address-card corp-modal-icon" style="color: var(--success-green);"></i>
+            <h3>Guardar en Contactos</h3>
+            
+            <p style="font-size: 0.88rem; color: var(--ngc-text-faded); line-height: 1.5; margin-bottom: 15px; text-align: center;">
+                Se descargará la ficha de contacto (<strong style="color: var(--ngc-text-main);">Sergio_Villagra.vcf</strong>).
+            </p>
+            
+            <div style="background: var(--ngc-bg-input); border: 1px solid var(--ngc-privacy-border); border-radius: 8px; padding: 14px; margin-bottom: 20px; text-align: left; font-size: 0.82rem; color: var(--ngc-text-faded); line-height: 1.5;">
+                <div style="font-weight: 700; color: var(--ngc-text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-circle-info" style="color: var(--ngc-neon);"></i> ¿Cómo agendar en tu celular?
+                </div>
+                <ol style="padding-left: 18px; margin: 0; display: flex; flex-direction: column; gap: 6px;">
+                    <li>Toca el botón <strong>Descargar Ficha</strong>.</li>
+                    <li>Al finalizar, abre la notificación o la descarga en tu celular.</li>
+                    <li>Tu agenda guardará automáticamente el teléfono, e-mail y datos de registro de Sergio.</li>
+                </ol>
+            </div>
+
+            <div class="corp-modal-actions">
+                <button onclick="ejecutarDescargaVCard()" class="corp-btn corp-btn-large success-btn" style="justify-content: center;">
+                    <i class="fa-solid fa-download"></i> DESCARGAR FICHA
+                </button>
+                <button onclick="cerrarModalVCard()" class="corp-btn" style="justify-content: center; background: transparent; border: 1px solid var(--ngc-privacy-border);">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
 
 <script src="../js/global.js" defer></script>
 <script src="script.js" defer></script>
