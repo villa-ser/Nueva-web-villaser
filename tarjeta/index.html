@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="preload" as="image" href="img/fondotarjeta.avif">
-    <link rel="preload" as="image" href="img/fondotarjetaclaro.avif">
+    <link rel="preload" as="image" href="../img/fondotarjeta.avif">
+    <link rel="preload" as="image" href="../img/fondotarjetaclaro.avif">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarjeta - Sergio Villagra - Electricista - Córdoba</title>
@@ -12,7 +12,7 @@
     <meta name="keywords" content="contacto electricista cordoba, telefono electricista, tarjeta virtual electricista, urgencias electricas">
     <meta name="author" content="Sergio Adrian Villagra">
     
-    <link rel="icon" type="image/png" href="img/tarjeta.avif">
+    <link rel="icon" type="image/png" href="../img/tarjeta.avif">
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="Tarjeta - Sergio Villagra - Electricista - Córdoba">
@@ -52,7 +52,7 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="bg-tarjeta">
 
     <!-- NAV SUPERIOR (Estilo App unificado) -->
     <div class="corp-top-nav" style="position: absolute; top: 15px; left: 15px; right: 15px; width: auto; z-index: 999; display: flex; justify-content: space-between; align-items: center;">
@@ -61,7 +61,7 @@
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
             <button onclick="toggleTema()" class="corp-btn-icon" aria-label="Cambiar tema">
-                <i class="fa-solid fa-moon icono-tema-global"></i>
+                <i class="fa-solid fa-moon icono-tema-global" id="icono-tema"></i>
             </button>
         </div>
     </div>
@@ -172,5 +172,4 @@
 <script src="script.js" defer></script>
     
 </body>
-  </html>
-  
+</html>
