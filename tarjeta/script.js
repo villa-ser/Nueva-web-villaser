@@ -24,6 +24,22 @@ document.addEventListener("DOMContentLoaded", () => {
     elementosAnimar.forEach(el => observer.observe(el));
 });
 
+// LÓGICA DE TEMA (MODO DÍA/NOCHE) - ESPECÍFICO PARA TARJETA
+function toggleTema() {
+    const html = document.documentElement;
+    const iconoTema = document.getElementById('icono-tema');
+    
+    if (html.getAttribute('data-theme') === 'light') {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('temaVillaser', 'dark');
+        if (iconoTema) { iconoTema.classList.remove('fa-sun'); iconoTema.classList.add('fa-moon'); }
+    } else {
+        html.setAttribute('data-theme', 'light');
+        localStorage.setItem('temaVillaser', 'light');
+        if (iconoTema) { iconoTema.classList.remove('fa-moon'); iconoTema.classList.add('fa-sun'); }
+    }
+}
+
 // NAVEGACIÓN ENTRE BOTONES Y FORMULARIO
 function showForm() {
   document.getElementById('headerSection').style.display = 'none';
