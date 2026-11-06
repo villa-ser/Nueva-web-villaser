@@ -788,3 +788,19 @@ a.corp-btn-icon i {
     transform: translateX(0);
     visibility: visible;
 }
+
+/* ============================================================== */
+/* FONDOS ESPECÍFICOS PARA LA TARJETA DE CONTACTO                 */
+/* ============================================================== */
+body.bg-tarjeta {
+    background-image: url('../img/fondotarjeta.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: var(--bg-body); /* Color de respaldo seguro */
+}
+
+[data-theme="light"] body.bg-tarjeta {
+    background-image: url('../img/fondotarjetaclaro.avif');
+}
