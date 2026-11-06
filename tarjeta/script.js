@@ -35,6 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const elementosAnimar = document.querySelectorAll('.fade-in-up');
     elementosAnimar.forEach(el => observer.observe(el));
+
+    // Cerrar el modal al hacer clic en el fondo oscuro
+    const modalVCard = document.getElementById('modalVCard');
+    if (modalVCard) {
+        modalVCard.addEventListener('click', function(e) {
+            if (e.target === this) cerrarModalVCard();
+        });
+    }
 });
 
 // LÓGICA DE TEMA (MODO DÍA/NOCHE)
@@ -117,8 +125,18 @@ function resetFormState() {
   hideFormMobile();
 }
 
-// DESCARGAR CONTACTO Y COMPARTIR
-function descargarVCard() {
+// GESTIÓN DEL MODAL Y DESCARGA VCARD
+function abrirModalVCard() {
+    const modal = document.getElementById('modalVCard');
+    if (modal) modal.classList.remove('oculto');
+}
+
+function cerrarModalVCard() {
+    const modal = document.getElementById('modalVCard');
+    if (modal) modal.classList.add('oculto');
+}
+
+function ejecutarDescargaVCard() {
   const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:Sergio Villagra - Electricista
@@ -142,6 +160,7 @@ END:VCARD`;
   document.body.removeChild(a);
   
   URL.revokeObjectURL(url);
+  cerrarModalVCard();
 }
 
 function compartirTarjeta() {
