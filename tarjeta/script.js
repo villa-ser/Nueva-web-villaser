@@ -3,6 +3,19 @@
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Sincronizar el icono de tema al cargar
+    const html = document.documentElement;
+    const iconoTema = document.getElementById('icono-tema');
+    if (iconoTema) {
+        if (html.getAttribute('data-theme') === 'light') {
+            iconoTema.classList.remove('fa-moon');
+            iconoTema.classList.add('fa-sun');
+        } else {
+            iconoTema.classList.remove('fa-sun');
+            iconoTema.classList.add('fa-moon');
+        }
+    }
+
     // Animación de aparición en cascada
     const observerOptions = {
         root: null,
@@ -24,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elementosAnimar.forEach(el => observer.observe(el));
 });
 
-// LÓGICA DE TEMA (MODO DÍA/NOCHE) - ESPECÍFICO PARA TARJETA
+// LÓGICA DE TEMA (MODO DÍA/NOCHE)
 function toggleTema() {
     const html = document.documentElement;
     const iconoTema = document.getElementById('icono-tema');
@@ -32,29 +45,33 @@ function toggleTema() {
     if (html.getAttribute('data-theme') === 'light') {
         html.removeAttribute('data-theme');
         localStorage.setItem('temaVillaser', 'dark');
-        if (iconoTema) { iconoTema.classList.remove('fa-sun'); iconoTema.classList.add('fa-moon'); }
+        if (iconoTema) { 
+            iconoTema.classList.remove('fa-sun'); 
+            iconoTema.classList.add('fa-moon'); 
+        }
     } else {
         html.setAttribute('data-theme', 'light');
         localStorage.setItem('temaVillaser', 'light');
-        if (iconoTema) { iconoTema.classList.remove('fa-moon'); iconoTema.classList.add('fa-sun'); }
+        if (iconoTema) { 
+            iconoTema.classList.remove('fa-moon'); 
+            iconoTema.classList.add('fa-sun'); 
+        }
     }
 }
 
 // NAVEGACIÓN ENTRE BOTONES Y FORMULARIO
 function showForm() {
-  document.getElementById('headerSection').style.display = 'none';
+  document.getElementById('headerSection') ? document.getElementById('headerSection').style.display = 'none' : null;
   document.getElementById('mainButtons').style.display = 'none';
   
   const fs = document.getElementById('formSection');
   fs.style.display = 'block';
-  // Pequeño timeout para que la clase visible aplique la transición
   setTimeout(() => fs.classList.add('visible'), 10);
   
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function hideFormMobile() {
-  document.getElementById('headerSection').style.display = 'block';
   document.getElementById('mainButtons').style.display = 'flex';
   
   const fs = document.getElementById('formSection');
