@@ -136,31 +136,71 @@ function cerrarModalVCard() {
     if (modal) modal.classList.add('oculto');
 }
 
-function ejecutarDescargaVCard() {
-  const vcard = `BEGIN:VCARD
+// Nueva función asíncrona para incrustar la foto y descargar
+async function ejecutarDescargaVCard() {
+    // 1. Efecto visual de carga en el botón
+    const btn = document.querySelector('#modalVCard .success-btn');
+    const btnOriginalText = btn ? btn.innerHTML : '';
+    if (btn) {
+        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> PREPARANDO...';
+        btn.style.pointerEvents = 'none';
+    }
+
+    let fotoBase64 = "";
+    
+    try {
+        // 2. Buscamos y leemos tu imagen miniatura
+        const response = await fetch('../img/icono-miniatura.png');
+        const blobImg = await response.blob();
+        
+        // 3. Convertimos la imagen a texto (Base64) para incrustarla en el .vcf
+        fotoBase64 = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(',')[1]);
+            reader.readAsDataURL(blobImg);
+        });
+    } catch (error) {
+        console.log("Fallback: El vCard se descargará sin foto por seguridad.", error);
+    }
+
+    // 4. Construimos la tarjeta VCF
+    let vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:Sergio Villagra - Electricista
 ORG:Electricista Habilitado Cat III
 TEL;TYPE=CELL,VOICE,PREF:+5493513559347
 EMAIL:contacto@villaser.com.ar
 URL:https://villaser.com.ar
-NOTE:Idóneo Registro Nro. 29029389 - 14027
-END:VCARD`;
+NOTE:Idóneo Registro Nro. 29029389 - 14027\n`;
+    
+    // Si la conversión de la foto fue exitosa, la añadimos al código
+    if (fotoBase64) {
+        vcard += `PHOTO;TYPE=PNG;ENCODING=b:${fotoBase64}\n`;
+    }
+    
+    vcard += `END:VCARD`;
 
-  const blob = new Blob([vcard], { type: 'text/vcard' });
-  const url = URL.createObjectURL(blob);
-  
-  const a = document.createElement('a');
-  a.style.display = 'none';
-  a.href = url;
-  a.download = 'Sergio_Villagra.vcf';
-  
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  
-  URL.revokeObjectURL(url);
-  cerrarModalVCard();
+    // 5. Ejecutamos la descarga del archivo en el celular
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'Sergio_Villagra.vcf';
+    
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    
+    URL.revokeObjectURL(url);
+    
+    // 6. Restauramos el botón y cerramos el modal
+    if (btn) {
+        btn.innerHTML = btnOriginalText;
+        btn.style.pointerEvents = 'auto';
+    }
+    cerrarModalVCard();
 }
 
 function compartirTarjeta() {
