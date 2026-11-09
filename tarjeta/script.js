@@ -150,7 +150,7 @@ async function ejecutarDescargaVCard() {
     
     try {
         // 2. Buscamos y leemos tu imagen miniatura
-        const response = await fetch('../img/icono-miniatura.png');
+        const response = await fetch('../img/contacto_agenda.png');
         const blobImg = await response.blob();
         
         // 3. Convertimos la imagen a texto (Base64) para incrustarla en el .vcf
